@@ -5,25 +5,16 @@ Ricardo is a giant NFL football fan. His favorite team is the Green Bay Packers,
 **Project Technologies/Techniques**
 <br>
 <ul>
-  <li>Security/Authentication<ul><li>AWS Cognito</li></ul></li>
-  DatabaseMySQL 8.x</li></ul></li>
-ORM Framework
-Hibernate Version TBD
-Dependency Management
-Maven
-Web Services consumed using Java
-TBD
-CSS
-Bootstrap or Materialize
-Data Validation
-Bootstrap Validator for front end
-Explore Hibernate Validator?
-Logging
-Log4J2
-Hosting
-AWS
-Tech I'd like to explore as part of this work
-Unit Testing
-JUnit tests to cover all testable logic
-IDE: IntelliJ IDEA
+    <li>Security/Authentication<ul><li>AWS Cognito</li></ul></li>
+    <li>DatabaseM<ul><li>MySQL 8.x</li></ul></li>
+    <li>ORM Framework<ul><li>Hibernate Version TBD</li></ul></li>
+    <li>Dependency Management<ul><li>Maven</li></ul></li>
+    <li>Web Services consumed using Java<ul><li>TBD</li></ul></li>
+    <li>CSS<ul><li>Materialize</li></ul></li>
+    <li>Data Validation<ul><li>Bootstrap Validator for front end</li></ul></li>
+    <li>Logging<ul><li>Log4J2</li></ul></li>
+    <li>Hosting<ul><li>AWS</li></ul></li>
+    <li>Tech I'd like to explore as part of this work</li>
+    <li>Unit Testing<ul><li>JUnit tests to cover all testable logic</li></ul></li>
+    <li>IDE: <ul><li>IntelliJ IDEA</li></ul></li>
 </ul>
