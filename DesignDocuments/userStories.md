@@ -12,7 +12,7 @@
 <h3>Generate a New Schedule*</h3>
 <p>Brings the user to the generation settings page</p>
 
-<h3>Generation Settings</h3>
+<h3>Generation Settings*</h3>
 <p>Gives the user the choice of number of teams, number of weeks in schedule, match-up frequency, and other settings.</p>
 
 <h3>Enter Team Names*</h3>
