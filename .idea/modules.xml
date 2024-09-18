@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/DesignDocuments/DesignDocuments.iml" filepath="$PROJECT_DIR$/DesignDocuments/DesignDocuments.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/FantasyFootballScheduler.iml" filepath="$PROJECT_DIR$/.idea/FantasyFootballScheduler.iml" />
     </modules>
   </component>
