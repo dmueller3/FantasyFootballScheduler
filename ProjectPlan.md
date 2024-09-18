@@ -27,8 +27,11 @@
 - [ ] Update weekly reflection
 
 ### Week 5
+- [ ] Write code to create a schedule
+- [ ] Write test code for
 
 ### Week 6
+- [ ] Deploy project to AWS
 
 ### Week 7
 #### Checkpoint 2 is Due: Database designed and created, at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, DAO is fully unit tested, Log4J is implemented (no System.out.printlns)
