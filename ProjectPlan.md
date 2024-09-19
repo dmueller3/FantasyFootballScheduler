@@ -12,7 +12,7 @@
 - [X] Document user stories and select MVP stories
 - [X] Confirm MVP stories meet Ent Java indie project objectives
 - [X] Design screens - make sure all MVP user stories are covered
-- [ ] Update journal/time log/reflection
+- [X] Update journal/time log/reflection
 
 ### Week 4
 - [ ] First cut at database design
@@ -28,36 +28,55 @@
 
 ### Week 5
 - [ ] Write code to create a schedule
-- [ ] Write test code for
+- [ ] Write test code for basic schedule creation
+- [ ] Practice schedule creation with several test cases
 
 ### Week 6
-- [ ] Deploy project to AWS
+- [ ] Explore deploying project to AWS
+- [ ] Complete database design
+- [ ] Create class and JSP for entering team names
+- [ ] Create class and JSP for schedule settings
+- [ ] Write some test code for entering team names
+- [ ] Write some test code for schedule settings
 
 ### Week 7
 #### Checkpoint 2 is Due: Database designed and created, at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, DAO is fully unit tested, Log4J is implemented (no System.out.printlns)
 
 - [ ] Double-check all checkpoint 2 items (above) are complete and visible in github.
-- [ ] Set up Authentication in indie project (more tasks coming for this)
+- [ ] Set up Authentication in indie project
 - [ ] Create project DB on AWS.
 - [ ] Update project config files for AWS as needed
 - [ ] Deploy project to AWS
 - [ ] Add deployed link to indie project list in student repo
 
 ### Week 8
+- [ ] Create classes and JSP's for authentication
+- [ ] Create homepage JSP
+- [ ] Write basic HTML for JSP's
+- [ ] Test table generation for schedule results
 
 ### Week 9 (Start of the team project)
 #### Checkpoint 3 is Due: Deployed to AWS, at least one JSP that displays data from the database is implemented, authentication implemented, add AWS deployed app link to indie project list in student repo.
 - [ ] Double-check all checkpoint 3 items (above) are complete and visible in github.
 
 ### Week 10
+- [ ] Create class and JSP for Schedule History
+- [ ] Create class and JSP for Schedule deletion
+- [ ] Work on team project
 
 ### Week 11
+- [ ] Work on indie project
+- [ ] Work on team project
 
 ### Week 12
+- [ ] Work on indie project
 
 ### Week 13
+- [ ] Work on indie project
 
 ### Week 14
+- [ ] Heavy CSS and UI work
+- [ ] General polishing of indie project
 
 ### Week 15
 - [ ] Implement Feedback from Week 14 review
