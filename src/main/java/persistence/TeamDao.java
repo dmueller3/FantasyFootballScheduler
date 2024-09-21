@@ -53,63 +53,63 @@ public class TeamDao {
     }
 
 
-    /** Return a list of all users
+    /** Return a list of all teamNames
      *
-     * @return All users
+     * @return All teamNames
      */
-    public List<User> getAll() {
+    public List<TeamNames> getAll() {
 
         Session session = sessionFactory.openSession();
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from(User.class);
-        List<User> users = session.createSelectionQuery( query ).getResultList();
+        CriteriaQuery<TeamNames> query = builder.createQuery(TeamNames.class);
+        Root<TeamNames> root = query.from(TeamNames.class);
+        List<TeamNames> teamNames = session.createSelectionQuery( query ).getResultList();
 
-        logger.debug("The list of users " + users);
+        logger.debug("The list of teamNames " + teamNames);
         session.close();
 
-        return users;
+        return teamNames;
     }
 
     /**
-     * Get user by property (exact match)
+     * Get teamNames by property (exact match)
      * sample usage: getByPropertyEqual("lastname", "Curry")
      */
-    public List<User> getByPropertyEqual(String propertyName, String value) {
+    public List<TeamNames> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
-        logger.debug("Searching for user with " + propertyName + " = " + value);
+        logger.debug("Searching for teamNames with " + propertyName + " = " + value);
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from(User.class);
+        CriteriaQuery<TeamNames> query = builder.createQuery(TeamNames.class);
+        Root<TeamNames> root = query.from(TeamNames.class);
         query.select(root).where(builder.equal(root.get(propertyName), value));
-        List<User> users = session.createSelectionQuery( query ).getResultList();
+        List<TeamNames> teamNames = session.createSelectionQuery( query ).getResultList();
 
         session.close();
-        return users;
+        return teamNames;
     }
 
     /**
-     * Get user by property (like)
+     * Get teamNames by property (like)
      * sample usage: getByPropertyLike("lastname", "C")
      */
-    public List<User> getByPropertyLike(String propertyName, String value) {
+    public List<TeamNames> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
-        logger.debug("Searching for user with {} = {}",  propertyName, value);
+        logger.debug("Searching for teamNames with {} = {}",  propertyName, value);
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> root = query.from( User.class );
+        CriteriaQuery<TeamNames> query = builder.createQuery(TeamNames.class);
+        Root<TeamNames> root = query.from( TeamNames.class );
         Expression<String> propertyPath = root.get(propertyName);
 
         query.where(builder.like(propertyPath, "%" + value + "%"));
 
-        List<User> users = session.createQuery( query ).getResultList();
+        List<TeamNames> teamNames = session.createQuery( query ).getResultList();
         session.close();
-        return users;
+        return teamNames;
     }
 
 }
