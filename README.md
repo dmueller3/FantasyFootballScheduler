@@ -2,6 +2,8 @@
 
 Ricardo is a giant NFL football fan. His favorite team is the Green Bay Packers, but he enjoys watching all football games. Naturally, to extend his NFL fandom and, allow him to have a stake in most games, Ricardo created a fantasy football league for him and his friends. He uses the official NFL fantasy football website to run his league. While this website allows Ricardo a wide plethora of tools to customize his league, many of the tools aren't fully fleshed out. One major missing feature is dynamic schedule editing. The NFL website allows Ricardo to edit the schedule week-by-week, but the schedule isn't dynamically changed to generate best match-ups based on the week 1 schedule. Ricardo needs a tool that will allow him the freedom to choose from an 8,10, or 12 person league, define how frequent match-ups can be, and how many times a user can play the same team.
 
+Link to NFL Fantasy Website: https://fantasy.nfl.com/
+
 **Project Technologies/Techniques**
 <br>
 <ul>
