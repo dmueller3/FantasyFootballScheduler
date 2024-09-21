@@ -20,7 +20,6 @@
 - [ ] Create the Schedule Results entity
 - [ ] Create the shell for the login pages
 - [ ] Create the config files for the DB connection info (dev and test)
-- [ ] Create a test version of the database for unit testing
 - [ ] Create a class for the DB connection business
 - [ ] Create JSP for Schedule Results
 - [ ] Create controller to route to schedule results JSP
