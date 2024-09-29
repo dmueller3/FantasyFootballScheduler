@@ -29,7 +29,8 @@ public class TeamNames {
 
     /**
      * Builds a new team
-     * @param teamName the name of the fantasy football team
+     *
+     * @param teamName  the name of the fantasy football team
      * @param teamOwner the owner of the fantasy football team
      */
     public TeamNames(String teamName, String teamOwner) {
@@ -37,26 +38,56 @@ public class TeamNames {
         this.teamOwner = teamOwner;
     }
 
+    /**
+     * Gets team name.
+     *
+     * @return the team name
+     */
     public String getTeamName() {
         return teamName;
     }
 
+    /**
+     * Sets team name.
+     *
+     * @param teamName the team name
+     */
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
 
+    /**
+     * Gets team owner.
+     *
+     * @return the team owner
+     */
     public String getTeamOwner() {
         return teamOwner;
     }
 
+    /**
+     * Sets team owner.
+     *
+     * @param teamOwner the team owner
+     */
     public void setTeamOwner(String teamOwner) {
         this.teamOwner = teamOwner;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(int id) {
         this.id = id;
     }
