@@ -2,7 +2,7 @@ package entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Represents Fantasy Football Teams
