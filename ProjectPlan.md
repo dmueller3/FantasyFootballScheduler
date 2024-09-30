@@ -15,20 +15,20 @@
 - [X] Update journal/time log/reflection
 
 ### Week 4
-- [ ] First cut at database design
-- [ ] Create the dev version of the database
-- [ ] Create the Schedule Results entity
-- [ ] Create the shell for the login pages
-- [ ] Create the config files for the DB connection info (dev and test)
-- [ ] Create a class for the DB connection business
-- [ ] Create JSP for Schedule Results
-- [ ] Create controller to route to schedule results JSP
-- [ ] Update weekly reflection
+- [x] First cut at database design
+- [x] Create the dev version of the database
+- [x] Create the Schedule Results entity
+- [x] Create the shell for the login pages
+- [x] Create the config files for the DB connection info (dev and test)
+- [x] Create a class for the DB connection business
+- [x] Create JSP for Schedule Results
+- [x] Create controller to route to schedule results JSP
+- [x] Update weekly reflection
 
 ### Week 5
-- [ ] Write code to create a schedule
-- [ ] Write test code for basic schedule creation
-- [ ] Practice schedule creation with several test cases
+- [x] Write code to create a schedule
+- [x] Write test code for basic schedule creation
+- [x] Practice schedule creation with several test cases
 
 ### Week 6
 - [ ] Explore deploying project to AWS
