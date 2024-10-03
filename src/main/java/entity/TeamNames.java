@@ -12,7 +12,7 @@ import jakarta.persistence.*;
 public class TeamNames {
     @Column(name = "team_name")
     private String teamName;
-    @Column
+    @Column(name = "team_owner")
     private String teamOwner;
 
     @Id
