@@ -16,5 +16,14 @@ import java.io.IOException;
 @WebServlet(
         urlPatterns = {"/enterNames"}
 )
-public class EnterTeamNames {
+public class EnterTeamNames extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        TeamDao teamDao = new TeamDao();
+
+        request.setAttribute("teams", teamDao.getAll());
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/teamNames.jsp");
+        dispatcher.forward(request, response);
+    }
 }

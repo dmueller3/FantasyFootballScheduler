@@ -11,8 +11,8 @@
         <h3>Enter Team Names</h3>
         <label for="team1">Team 1</label>
         <select id="team1" name="team1">
-          <c:forEach>
-            <option></option>
+          <c:forEach var="team" items="${teams}">
+            <option>${team.teamName}</option>
           </c:forEach>
         </select>
       </main>
