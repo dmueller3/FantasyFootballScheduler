@@ -31,22 +31,21 @@
 - [x] Practice schedule creation with several test cases
 
 ### Week 6
-- [ ] Explore deploying project to AWS
-- [ ] Complete database design
-- [ ] Create class and JSP for entering team names
-- [ ] Create class and JSP for schedule settings
-- [ ] Write some test code for entering team names
-- [ ] Write some test code for schedule settings
+- [x] Deploy project to AWS
+- [x] Work on database design
+- [x] Create class and JSP for entering team names
+- [x] Write some test code for entering team names
+- [x] Create project DB on AWS.
 
 ### Week 7
 #### Checkpoint 2 is Due: Database designed and created, at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, DAO is fully unit tested, Log4J is implemented (no System.out.printlns)
 
 - [ ] Double-check all checkpoint 2 items (above) are complete and visible in github.
 - [ ] Set up Authentication in indie project
-- [ ] Create project DB on AWS.
 - [ ] Update project config files for AWS as needed
-- [ ] Deploy project to AWS
 - [ ] Add deployed link to indie project list in student repo
+- [ ] Write some test code for schedule settings
+- [ ] Create class and JSP for schedule settings
 
 ### Week 8
 - [ ] Create classes and JSP's for authentication
