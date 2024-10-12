@@ -4,7 +4,14 @@
 <html>
     <body>
         <header>
-            <a href="#">Login</a>
+            <c:choose>
+                <c:when test="${empty userName}">
+                    <a href = "logIn">Login</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="#">Logout</a>
+                </c:otherwise>
+            </c:choose>
             <h1>Fantasy Football Scheduler</h1>
         </header>
         <main>
