@@ -15,7 +15,7 @@
             <h1>Fantasy Football Scheduler</h1>
         </header>
         <main>
-            <a href="enterNames">Generate a Schedule</a>
+            <a href="generationSettings.jsp">Generate a Schedule</a>
             <a href="#">Schedule History</a>
             <h3>How to Use the Fantasy Football Scheduler</h3>
             <p>To use this application...</p>
