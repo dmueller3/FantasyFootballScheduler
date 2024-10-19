@@ -57,7 +57,7 @@ public class TeamDao {
      *
      * @return All teamNames
      */
-    public List<TeamNames> getAll() {
+    public static List<TeamNames> getAll() {
 
         Session session = sessionFactory.openSession();
 
