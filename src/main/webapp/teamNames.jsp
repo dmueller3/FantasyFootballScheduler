@@ -15,6 +15,7 @@
             <option>${team.teamName}</option>
           </c:forEach>
         </select>
+          <p>Don't see a team name? </p><a href="">Add a team</a>
       </main>
   </body>
 </html>

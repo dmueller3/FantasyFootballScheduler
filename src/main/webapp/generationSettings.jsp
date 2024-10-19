@@ -35,7 +35,7 @@
                 <label for="frequencyPlayed">Frequency: </label>
                 <input type="text" id="frequencyPlayed" name="frequencyPlayed">
                 <br><br>
-                <input type="submit" value="Submit form">
+                <input type="submit" value="Submit">
                 <input type="reset" value="Clear fields">
             </form>
         </main>
