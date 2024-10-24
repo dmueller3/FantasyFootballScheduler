@@ -12,8 +12,8 @@ public class ScheduleGeneration {
     List<TeamNames> teams;
 
     public void getTeams() {
-        teams = TeamDao.getAll();
+
     }
 
-    
+
 }
