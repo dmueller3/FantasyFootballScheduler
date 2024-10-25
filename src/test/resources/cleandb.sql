@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.39, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: fantasy_football
+-- Host: 127.0.0.1    Database: fantasy_football_test
 -- ------------------------------------------------------
 -- Server version	8.0.39
 
