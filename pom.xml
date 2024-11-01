@@ -15,11 +15,11 @@
     <junit.version>4.13.1</junit.version>
     <junit-vintage-version>4.12.0</junit-vintage-version>
     <jupiter-version>5.0.0</jupiter-version>
-    <log4j-version>2.10.0</log4j-version>
+    <log4j-version>2.17.1</log4j-version>
     <maven.compiler.release>11</maven.compiler.release>
     <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
     <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
-    <mysql-version>8.0.16</mysql-version>
+    <mysql-version>8.0.28</mysql-version>
   </properties>
 
   <dependencies>
@@ -93,24 +93,6 @@
       <version>RELEASE</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
-      <scope>test</scope>
-    </dependency>
     <!-- for parsing access token -->
     <dependency>
       <groupId>com.auth0</groupId>
@@ -133,24 +115,6 @@
     <finalName>FantasyFootballScheduler</finalName>
     <pluginManagement>
       <plugins>
-        <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>3.2.2</version>
-          <configuration>
-            <webResources>
-              <resource>
-                <directory>src/main/.platform</directory>
-                <targetPath>.platform</targetPath>
-                <filtering>true</filtering>
-              </resource>
-              <resource>
-                <directory>src/main/.ebextensions</directory>
-                <targetPath>.ebextensions</targetPath>
-                <filtering>true</filtering>
-              </resource>
-            </webResources>
-          </configuration>
-        </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
