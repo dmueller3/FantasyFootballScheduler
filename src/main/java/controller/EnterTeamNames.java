@@ -1,5 +1,6 @@
 package controller;
 
+import entity.GenerateSchedule;
 import persistence.TeamDao;
 
 import javax.servlet.RequestDispatcher;
@@ -21,7 +22,9 @@ public class EnterTeamNames extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         TeamDao teamDao = new TeamDao();
+        GenerateSchedule generateSchedule = new GenerateSchedule();
 
+        request.setAttribute("numberOfTeams", 1); // change later
         request.setAttribute("teams", teamDao.getAll());
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/teamNames.jsp");
