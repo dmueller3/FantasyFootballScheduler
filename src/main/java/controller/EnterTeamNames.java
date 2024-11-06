@@ -1,6 +1,5 @@
 package controller;
 
-import entity.GenerateSchedule;
 import persistence.TeamDao;
 
 import javax.servlet.RequestDispatcher;

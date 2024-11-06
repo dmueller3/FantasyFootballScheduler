@@ -1,12 +1,9 @@
-package entity;
-
-import persistence.TeamDao;
+package controller;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import java.io.*;
-import java.util.*;
 
 @WebServlet(
         urlPatterns = {"/generationSettings"}
@@ -33,7 +30,7 @@ public class ScheduleGenerationSettings extends HttpServlet {
         int numberOfWeeks = Integer.parseInt(request.getParameter("numberOfWeeks"));
         int matchupFrequency = Integer.parseInt(request.getParameter("matchupFrequency"));
 
-        generateSchedule.getSettings(numberOfTeams, numberOfWeeks, matchupFrequency);
+
 
         String url = "/teamNames.jsp";
 

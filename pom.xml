@@ -137,7 +137,6 @@
           <version>3.2.2</version>
           <configuration>
             <webResources>
-              <!--
               <resource>
                 <directory>src/main/.platform</directory>
                 <targetPath>.platform</targetPath>
@@ -148,7 +147,6 @@
                 <targetPath>.ebextensions</targetPath>
                 <filtering>true</filtering>
               </resource>
-              -->
             </webResources>
           </configuration>
         </plugin>
