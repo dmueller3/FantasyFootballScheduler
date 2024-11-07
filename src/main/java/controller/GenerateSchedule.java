@@ -48,6 +48,6 @@ public class GenerateSchedule {
     }
 
     public boolean matchupValidity(String matchup) {
-
+        return true;
     }
 }

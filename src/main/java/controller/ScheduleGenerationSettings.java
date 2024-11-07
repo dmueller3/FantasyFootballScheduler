@@ -23,17 +23,20 @@ public class ScheduleGenerationSettings extends HttpServlet {
             throws ServletException, IOException {
         // Reference the servlet context
         ServletContext context = getServletContext();
-
         GenerateSchedule generateSchedule = (GenerateSchedule) context.getAttribute("generateSchedule");
 
+        // Get the form inputs
         int numberOfTeams = Integer.parseInt(request.getParameter("numberOfTeams"));
         int numberOfWeeks = Integer.parseInt(request.getParameter("numberOfWeeks"));
         int matchupFrequency = Integer.parseInt(request.getParameter("matchupFrequency"));
 
+        // Store the form values in the session
+        HttpSession session = request.getSession();
+        session.setAttribute("numberOfTeams", numberOfTeams);
+        session.setAttribute("numberOfWeeks", numberOfWeeks);
+        session.setAttribute("matchupFrequency", matchupFrequency);
 
-
-        String url = "/teamNames.jsp";
-
-        request.getRequestDispatcher(url).forward(request, response);
+        // Send the redirect to the form where team names are entered
+        response.sendRedirect("teamNames.jsp");
     }
 }
