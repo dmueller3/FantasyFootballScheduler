@@ -8,7 +8,7 @@
             <h1>Fantasy Football Scheduler</h1>
         </header>
         <main>
-            <form name="settingsForm" action="${pageContext.request.contextPath}/generationSettings">
+            <form name="settingsForm" action="${pageContext.request.contextPath}/generationSettings" method="POST">
                 <h3>Number of Teams</h3>
                 <fieldset>
                     <input type="radio" id="fourTeams" value="fourTeams" name="numberTeams">

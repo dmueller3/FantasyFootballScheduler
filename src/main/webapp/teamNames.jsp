@@ -9,12 +9,14 @@
       </header>
       <main>
         <h3>Enter Team Names</h3>
-        <label for="team1">Team 1</label>
-        <select id="team1" name="team1">
-          <c:forEach var="team" items="${teams}">
-            <option>${team.teamName}</option>
-          </c:forEach>
-        </select>
+          <form action="${pageContext.request.contextPath}/enterNames" method="POST">
+                <c:choose>
+                    <c:when test="${numberOfTeams} = 6">
+
+                    </c:when>
+                </c:choose>
+          </form>
+
           <p>Don't see a team name? </p><a href="">Add a team</a>
       </main>
   </body>
