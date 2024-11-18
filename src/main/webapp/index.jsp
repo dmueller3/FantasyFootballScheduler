@@ -9,7 +9,7 @@
                     <a href = "logIn">Login</a>
                 </c:when>
                 <c:otherwise>
-                    <a href="#">Logout</a>
+                    <a href="#">Logout</a><p>   Welcome ${userName}</p>
                 </c:otherwise>
             </c:choose>
             <h1>Fantasy Football Scheduler</h1>

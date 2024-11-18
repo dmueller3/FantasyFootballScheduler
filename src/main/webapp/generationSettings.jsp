@@ -11,7 +11,7 @@
             <form name="settingsForm" action="${pageContext.request.contextPath}/generationSettings" method="POST">
                 <h3>Number of Teams</h3>
                 <fieldset>
-                    <input type="radio" id="fourTeams" value="fourTeams" name="numberTeams">
+                    <input type="radio" id="fourTeams" value="fourTeams" name="numberTeams" checked="checked">
                     <label for="fourTeams">4</label>
                     <input type="radio" id="sixTeams" value="sixTeams" name="numberTeams">
                     <label for="sixTeams">6</label>
@@ -22,7 +22,7 @@
                 </fieldset>
                 <h3>Number of Weeks in Regular Season</h3>
                 <fieldset>
-                    <input type="radio" id="thirteenWeeks" value="thirteenWeeks" name="numberWeeks">
+                    <input type="radio" id="thirteenWeeks" value="thirteenWeeks" name="numberWeeks" checked="checked">
                     <label for="thirteenWeeks">13</label>
                     <input type="radio" id="fourteenWeeks" value="fourteenWeeks" name="numberWeeks">
                     <label for="fourteenWeeks">14</label>
@@ -33,7 +33,7 @@
                 </fieldset>
                 <h3>How Often 2 Teams Can Play Each Other</h3>
                 <label for="frequencyPlayed">Frequency: </label>
-                <input type="text" id="frequencyPlayed" name="frequencyPlayed">
+                <input type="text" id="frequencyPlayed" name="frequencyPlayed" value="4" required>
                 <br><br>
                 <input type="submit" value="Submit">
                 <input type="reset" value="Clear fields">
