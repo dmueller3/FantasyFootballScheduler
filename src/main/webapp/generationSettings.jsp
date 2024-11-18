@@ -11,24 +11,24 @@
             <form name="settingsForm" action="${pageContext.request.contextPath}/generationSettings" method="POST">
                 <h3>Number of Teams</h3>
                 <fieldset>
-                    <input type="radio" id="fourTeams" value="fourTeams" name="numberTeams" checked="checked">
+                    <input type="radio" id="fourTeams" value="4" name="numberTeams" checked="checked">
                     <label for="fourTeams">4</label>
-                    <input type="radio" id="sixTeams" value="sixTeams" name="numberTeams">
+                    <input type="radio" id="sixTeams" value="6" name="numberTeams">
                     <label for="sixTeams">6</label>
-                    <input type="radio" id="eightTeams" value=eightTeams" name="numberTeams">
+                    <input type="radio" id="eightTeams" value="8" name="numberTeams">
                     <label for="eightTeams">8</label>
-                    <input type="radio" id="tenTeams" value="tenTeams" name="numberTeams">
+                    <input type="radio" id="tenTeams" value="10" name="numberTeams">
                     <label for="tenTeams">10</label>
                 </fieldset>
                 <h3>Number of Weeks in Regular Season</h3>
                 <fieldset>
-                    <input type="radio" id="thirteenWeeks" value="thirteenWeeks" name="numberWeeks" checked="checked">
+                    <input type="radio" id="thirteenWeeks" value="13" name="numberWeeks" checked="checked">
                     <label for="thirteenWeeks">13</label>
-                    <input type="radio" id="fourteenWeeks" value="fourteenWeeks" name="numberWeeks">
+                    <input type="radio" id="fourteenWeeks" value="14" name="numberWeeks">
                     <label for="fourteenWeeks">14</label>
-                    <input type="radio" id="fifteenWeeks" value=fifteenWeeks" name="numberWeeks">
+                    <input type="radio" id="fifteenWeeks" value="15" name="numberWeeks">
                     <label for="fifteenWeeks">15</label>
-                    <input type="radio" id="sixteenWeeks" value="sixteenWeeks" name="numberWeeks">
+                    <input type="radio" id="sixteenWeeks" value="16" name="numberWeeks">
                     <label for="sixteenWeeks">16</label>
                 </fieldset>
                 <h3>How Often 2 Teams Can Play Each Other</h3>

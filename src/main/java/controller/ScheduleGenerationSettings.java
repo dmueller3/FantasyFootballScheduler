@@ -26,9 +26,9 @@ public class ScheduleGenerationSettings extends HttpServlet {
         GenerateSchedule generateSchedule = (GenerateSchedule) context.getAttribute("generateSchedule");
 
         // Get the form inputs
-        int numberOfTeams = Integer.parseInt(request.getParameter("numberOfTeams"));
-        int numberOfWeeks = Integer.parseInt(request.getParameter("numberOfWeeks"));
-        int matchupFrequency = Integer.parseInt(request.getParameter("matchupFrequency"));
+        int numberOfTeams = Integer.parseInt(request.getParameter("numberTeams"));
+        int numberOfWeeks = Integer.parseInt(request.getParameter("numberWeeks"));
+        int matchupFrequency = Integer.parseInt(request.getParameter("frequencyPlayed"));
 
         // Store the form values in the session
         HttpSession session = request.getSession();
