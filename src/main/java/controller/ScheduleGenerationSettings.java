@@ -1,5 +1,7 @@
 package controller;
 
+import persistence.TeamDao;
+
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
@@ -25,13 +27,19 @@ public class ScheduleGenerationSettings extends HttpServlet {
         ServletContext context = getServletContext();
         GenerateSchedule generateSchedule = (GenerateSchedule) context.getAttribute("generateSchedule");
 
+        // Reference the session
+        HttpSession session = request.getSession();
+
+        // Get the team names from the database
+        TeamDao teamDao = new TeamDao();
+        session.setAttribute("teams", teamDao.getAll());
+
         // Get the form inputs
         int numberOfTeams = Integer.parseInt(request.getParameter("numberTeams"));
         int numberOfWeeks = Integer.parseInt(request.getParameter("numberWeeks"));
         int matchupFrequency = Integer.parseInt(request.getParameter("frequencyPlayed"));
 
         // Store the form values in the session
-        HttpSession session = request.getSession();
         session.setAttribute("numberOfTeams", numberOfTeams);
         session.setAttribute("numberOfWeeks", numberOfWeeks);
         session.setAttribute("matchupFrequency", matchupFrequency);
