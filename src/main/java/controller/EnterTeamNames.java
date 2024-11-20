@@ -23,26 +23,24 @@ public class EnterTeamNames extends HttpServlet {
         HttpSession session = request.getSession();
         int numberOfTeams = (int) session.getAttribute("numberOfTeams");
 
-        request.setAttribute("numberOfTeams", numberOfTeams); // change later
-
         // Get the values from this form for team names
-        String firstTeam = request.getParameter("firstTeam");
-        String secondTeam = request.getParameter("secondTeam");
-        String thirdTeam = request.getParameter("thirdTeam");
-        String fourthTeam = request.getParameter("fourthTeam");
+        String firstTeam = request.getParameter("team1");
+        String secondTeam = request.getParameter("team2");
+        String thirdTeam = request.getParameter("team3");
+        String fourthTeam = request.getParameter("team4");
 
         // Handle if there are more than 4 teams
         if (numberOfTeams >= 6) {
-            String fifthTeam = request.getParameter("fifthTeam");
-            String sixthTeam = request.getParameter("sixthTeam");
+            String fifthTeam = request.getParameter("team5");
+            String sixthTeam = request.getParameter("team6");
         }
         if (numberOfTeams >= 8) {
-            String seventhTeam = request.getParameter("seventhTeam");
-            String eighthTeam = request.getParameter("eighthTeam");
+            String seventhTeam = request.getParameter("team7");
+            String eighthTeam = request.getParameter("team8");
         }
         if (numberOfTeams == 10) {
-            String ninthTeam = request.getParameter("ninthTeam");
-            String tenthTeam = request.getParameter("tenthTeam");
+            String ninthTeam = request.getParameter("team9");
+            String tenthTeam = request.getParameter("team10");
         }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("scheduleResult.jsp");

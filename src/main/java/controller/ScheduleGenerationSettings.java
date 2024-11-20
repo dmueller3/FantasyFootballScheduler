@@ -7,10 +7,15 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import java.io.*;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @WebServlet(
         urlPatterns = {"/generationSettings"}
 )
 public class ScheduleGenerationSettings extends HttpServlet {
+    // Instantiate the logger
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     /**
      *  Handles HTTP POST requests.
@@ -23,6 +28,7 @@ public class ScheduleGenerationSettings extends HttpServlet {
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
             throws ServletException, IOException {
+
         // Reference the servlet context
         ServletContext context = getServletContext();
         GenerateSchedule generateSchedule = (GenerateSchedule) context.getAttribute("generateSchedule");
@@ -38,6 +44,11 @@ public class ScheduleGenerationSettings extends HttpServlet {
         int numberOfTeams = Integer.parseInt(request.getParameter("numberTeams"));
         int numberOfWeeks = Integer.parseInt(request.getParameter("numberWeeks"));
         int matchupFrequency = Integer.parseInt(request.getParameter("frequencyPlayed"));
+
+        // Log the inputs from the form
+        logger.info("Number of teams: {}", numberOfTeams);
+        logger.info("Number of weeks: {}", numberOfWeeks);
+        logger.info("Matchup frequency: {}", matchupFrequency);
 
         // Store the form values in the session
         session.setAttribute("numberOfTeams", numberOfTeams);

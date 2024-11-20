@@ -37,7 +37,7 @@
                   </c:forEach>
               </select>
                 <c:choose>
-                    <c:when test="${sessionScope.numberOfTeams} = 6">
+                    <c:when test="${sessionScope.numberOfTeams} == 6">
                         <label for="team5">Team 5</label>
                         <select id="team5" name="team5">
                             <c:forEach var="team" items="${teams}">
