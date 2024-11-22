@@ -54,7 +54,7 @@
                 </c:choose>
           </form>
 
-          <p>Don't see a team name? </p><a href="">Add a team</a>
+          <p>Don't see a team name? </p><a href="addTeam.jsp">Add a team</a>
       </main>
   </body>
 </html>
