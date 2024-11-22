@@ -4,9 +4,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <body>
-      <header>
-        <h1>Fantasy Football Scheduler</h1>
-      </header>
+    <header>
+        <c:import url="header.jsp" />
+    </header>
       <main>
         <h3>Enter Team Names</h3>
           <form action="${pageContext.request.contextPath}/enterNames" method="POST">

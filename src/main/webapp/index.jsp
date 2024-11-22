@@ -4,15 +4,7 @@
 <html>
     <body>
         <header>
-            <c:choose>
-                <c:when test="${empty userName}">
-                    <a href = "logIn">Login</a>
-                </c:when>
-                <c:otherwise>
-                    <a href="#">Logout</a><p>   Welcome ${userName}</p>
-                </c:otherwise>
-            </c:choose>
-            <h1>Fantasy Football Scheduler</h1>
+            <c:import url="header.jsp" />
         </header>
         <main>
             <a href="generationSettings.jsp">Generate a Schedule</a>

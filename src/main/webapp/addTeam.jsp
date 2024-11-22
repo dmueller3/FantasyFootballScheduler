@@ -5,7 +5,7 @@
 <html>
 <body>
 <header>
-    <h1>Fantasy Football Scheduler</h1>
+    <c:import url="header.jsp" />
 </header>
 <main>
     <h3>Add a Team</h3>

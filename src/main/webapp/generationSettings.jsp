@@ -5,7 +5,7 @@
 <html>
     <body>
         <header>
-            <h1>Fantasy Football Scheduler</h1>
+            <c:import url="header.jsp" />
         </header>
         <main>
             <form name="settingsForm" action="${pageContext.request.contextPath}/generationSettings" method="POST">
