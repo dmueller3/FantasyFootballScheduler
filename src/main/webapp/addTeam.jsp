@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="title" value="Enter Team Names" />
+<c:set var="title" value="Add a Team" />
 <%@include file="head.jsp"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -9,7 +9,7 @@
 </header>
 <main>
     <h3>Add a Team</h3>
-    <form action="" method="POST">
+    <form action="addTeamServlet" method="POST">
         <label for="teamName">Team Name</label>
         <input type="text" id="teamName" name="teamName" required/><br>
         <br>

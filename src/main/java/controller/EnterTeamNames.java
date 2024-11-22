@@ -13,9 +13,7 @@ import java.io.IOException;
  * Allows the user to enter the teams for the schedule maker
  * @author Derek Mueller
  */
-@WebServlet(
-        urlPatterns = {"/enterNames"}
-)
+@WebServlet("/enterNames")
 public class EnterTeamNames extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
