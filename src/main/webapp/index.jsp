@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="title" value="Fantasy Football Scheduler - Home" />
-<%@include file="head.jsp"%>
+<c:import url="head.jsp" />
 <html>
     <body>
         <header>

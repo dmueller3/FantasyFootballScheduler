@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:set var="title" value="Enter Team Names" />
-<%@include file="head.jsp"%>
+<c:set var="title" value="Schedule Results" />
+<c:import url="head.jsp" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
