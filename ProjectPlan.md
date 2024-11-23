@@ -40,37 +40,33 @@
 ### Week 7
 #### Checkpoint 2 is Due: Database designed and created, at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, DAO is fully unit tested, Log4J is implemented (no System.out.printlns)
 
-- [ ] Double-check all checkpoint 2 items (above) are complete and visible in github.
-- [ ] Set up Authentication in indie project
-- [ ] Update project config files for AWS as needed
-- [ ] Add deployed link to indie project list in student repo
-- [ ] Write some test code for schedule settings
-- [ ] Create class and JSP for schedule settings
+- [x] Double-check all checkpoint 2 items (above) are complete and visible in github.
+- [x] Set up Authentication in indie project
+- [x] Began creating HTTPS cert for beanstalk
 
 ### Week 8
-- [ ] Create classes and JSP's for authentication
-- [ ] Create homepage JSP
-- [ ] Write basic HTML for JSP's
-- [ ] Test table generation for schedule results
+- [x] Build JSP's for schedule generation
+- [x] Began JSP to add a team
+- [x] Setup classes to generate a schedule
 
 ### Week 9 (Start of the team project)
 #### Checkpoint 3 is Due: Deployed to AWS, at least one JSP that displays data from the database is implemented, authentication implemented, add AWS deployed app link to indie project list in student repo.
-- [ ] Double-check all checkpoint 3 items (above) are complete and visible in github.
+- [x] Work on more schedule generation
+- [x] Add additional tables and polish database
 
 ### Week 10
-- [ ] Create class and JSP for Schedule History
-- [ ] Create class and JSP for Schedule deletion
-- [ ] Work on team project
+- [x] Add instructions to the index page
+- [x] Create classes to get settings and forward to team selection page
+- [x] Continue work on schedule generation
 
 ### Week 11
-- [ ] Work on indie project
-- [ ] Work on team project
+- [ ] 
 
 ### Week 12
-- [ ] Work on indie project
+- [x] Double-check all checkpoint 3 items (above) are complete and visible in github.
 
 ### Week 13
-- [ ] Work on indie project
+- [x] Add deployed link to indie project list in student repo
 
 ### Week 14
 - [ ] Heavy CSS and UI work
