@@ -60,17 +60,25 @@
 - [x] Continue work on schedule generation
 
 ### Week 11
-- [ ] 
+- [x] Continue work on schedule generation
+- [x] Handle JSP/ form redirects of schedule settings
 
 ### Week 12
 - [x] Double-check all checkpoint 3 items (above) are complete and visible in github.
+- [x] Update HTTPS certs to successfully deploy to AWS EBS
+- [x] Work on JSP's and form input handling
 
 ### Week 13
 - [x] Add deployed link to indie project list in student repo
+- [x] Create process for adding a new team
+- [x] Use import tags in JSP's for a uniform header
+- [x] JSP/JSTL tag cleanup
 
 ### Week 14
 - [ ] Heavy CSS and UI work
-- [ ] General polishing of indie project
+- [ ] Finish schedule creation code
+- [ ] Connect entries to database
+- [ ] Implement the generic DAO
 
 ### Week 15
 - [ ] Implement Feedback from Week 14 review

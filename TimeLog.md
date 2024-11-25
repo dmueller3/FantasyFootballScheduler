@@ -15,3 +15,11 @@
 | 10/24/24 | Database config and polishing                                                                             | 2     | |
 | 11/3/24  | Worked on index page/added instructions                                                                   | 1     | |
 | 11/3/24  | Setup form flow and data forwarding                                                                       | 2     | |
+| 11/5/24  | Handled schedule generation and random shuffling/sorting                                                  | 3     | |
+| 11/6/24  | Worked on JSP redirects and froms for entering schedule generation data                                   | 2     | |
+| 11/9/24  | Worked on JSP redirects                                                                                   | 1     | |
+| 11/11/24 | Worked with Paula to test my cert generation for AWS EBS                                                  | 1     | |
+| 11/17/24 | Updated certs to successfully deploy to AWS EBS with HTTPS                                                | 1     | |
+| 11/17/24 | Worked on JSP redirects for schedule generation                                                           | 2     | |
+| 11/21/24 | Handled adding a new team to the teams database with a JSP form                                           | 2     | |
+| 11/21/24 | General JSP/JSTL cleanup                                                                                  | 1     | |
