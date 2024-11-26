@@ -8,16 +8,14 @@
   <c:import url="header.jsp" />
 </header>
 <main>
-  <h3>Enter Team Names</h3>
-  <form action="${pageContext.request.contextPath}/enterNames" method="POST">
-    <c:choose>
-      <c:when test="${numberOfTeams} = 6">
-
-      </c:when>
-    </c:choose>
-  </form>
-
-  <p>Don't see a team name? </p><a href="">Add a team</a>
+  <h3>Schedule Generation Results</h3>
+  <table style="border: 1px black">
+    <c:forEach items="matchups" var="matchup">
+      <tr>
+        <td></td>
+      </tr>
+    </c:forEach>
+  </table>
 </main>
 </body>
 </html>
