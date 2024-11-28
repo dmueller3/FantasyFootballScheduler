@@ -15,7 +15,7 @@ public class GenerateSchedule {
     private final Map<String, List<Integer>> previousMatchups;
     private final List<List<String>> schedule;
 
-    public GenerateSchedule(int numberOfWeeks, List<String> selectedTeams, int matchupFrequency, Map<String, List<Integer>> previousMatchups, List<List<String>> schedule) {
+    public GenerateSchedule(int numberOfWeeks, List<String> selectedTeams, int matchupFrequency) {
         this.numberOfWeeks = numberOfWeeks;
         this.selectedTeams = new ArrayList<>(selectedTeams);
         this.matchupFrequency = matchupFrequency;

@@ -29,10 +29,6 @@ public class ScheduleGenerationSettings extends HttpServlet {
                        HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Reference the servlet context
-        ServletContext context = getServletContext();
-        GenerateSchedule generateSchedule = (GenerateSchedule) context.getAttribute("generateSchedule");
-
         // Reference the session
         HttpSession session = request.getSession();
 
