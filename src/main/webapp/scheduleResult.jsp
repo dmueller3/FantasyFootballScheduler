@@ -10,9 +10,12 @@
 <main>
   <h3>Schedule Generation Results</h3>
   <table style="border: 1px black">
-    <c:forEach items="matchups" var="matchup">
+    <c:forEach var="week" items="${schedule}" varStatus="weekNumber">
       <tr>
-        <td></td>
+        <td>Week ${weekNumber.index + 1}</td>
+        <c:forEach var="matchup" items="${week}">
+          <td>${matchup}</td>
+        </c:forEach>
       </tr>
     </c:forEach>
   </table>

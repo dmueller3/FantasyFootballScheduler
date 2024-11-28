@@ -26,7 +26,7 @@ public class DisplayScheduleServlet extends HttpServlet {
         GenerateSchedule scheduler = new GenerateSchedule(numberOfWeeks, teams, matchupFrequency);
         scheduler.scheduleCreation();
 
-        List<List<String>> generatedSchedule = schedule.getSchedule();
+        List<List<String>> generatedSchedule = scheduler.getSchedule();
         request.setAttribute("schedule", generatedSchedule);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("scheduleResult.jsp");
