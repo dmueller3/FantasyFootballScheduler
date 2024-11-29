@@ -19,8 +19,8 @@ public class GenerateSchedule {
         this.numberOfWeeks = numberOfWeeks;
         this.selectedTeams = new ArrayList<>(selectedTeams);
         this.matchupFrequency = matchupFrequency;
-        this.previousMatchups = new HashMap<>(previousMatchups);
-        this.schedule = new ArrayList<>(schedule);
+        this.previousMatchups = new HashMap<>();
+        this.schedule = new ArrayList<>();
     }
 
     public void scheduleCreation() {

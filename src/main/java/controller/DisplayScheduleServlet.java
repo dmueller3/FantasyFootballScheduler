@@ -16,6 +16,12 @@ import java.util.*;
  */
 @WebServlet("/scheduleDisplay")
 public class DisplayScheduleServlet extends HttpServlet {
+    /*
+    Used Martin Wickham's answer to suppress unchecked cast error for arraylist:
+    https://stackoverflow.com/questions/17274441/java-how-to-handle-unchecked-cast-for-arraymyitem-from-object
+     */
+    @Override
+    @SuppressWarnings("unchecked")
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 

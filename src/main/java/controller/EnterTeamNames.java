@@ -30,7 +30,7 @@ public class EnterTeamNames extends HttpServlet {
             teams.add(teamName);
         }
 
-        session.setAttribute("teams", teams);
+        session.setAttribute("teams", new ArrayList<>(teams));
 
         /*
         // Get the values from this form for team names

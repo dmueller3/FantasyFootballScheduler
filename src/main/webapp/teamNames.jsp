@@ -52,6 +52,8 @@
                         </select>
                     </c:when>
                 </c:choose>
+              <br><br>
+              <input type="submit" value="Submit">
           </form>
 
           <p>Don't see a team name? </p><a href="addTeam.jsp">Add a team</a>

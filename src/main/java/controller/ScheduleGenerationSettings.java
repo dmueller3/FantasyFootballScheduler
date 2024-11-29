@@ -2,7 +2,6 @@ package controller;
 
 import persistence.TeamDao;
 
-import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import java.io.*;
@@ -22,12 +21,11 @@ public class ScheduleGenerationSettings extends HttpServlet {
      *
      *@param  request               Description of the Parameter
      *@param  response              Description of the Parameter
-     *@exception  ServletException  if there is a Servlet failure
      *@exception  IOException       if there is an IO failure
      */
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
-            throws ServletException, IOException {
+            throws IOException {
 
         // Reference the session
         HttpSession session = request.getSession();
