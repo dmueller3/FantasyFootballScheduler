@@ -9,7 +9,7 @@
     </header>
       <main>
         <h3>Enter Team Names</h3>
-          <form action="${pageContext.request.contextPath}/enterNames" method="POST">
+          <form action="enterNames" method="POST">
               <label for="team1">Team 1</label>
               <select id="team1" name="team1">
                   <!-- used Ravi K Thapliyal's response to use sessionScope to get the team names

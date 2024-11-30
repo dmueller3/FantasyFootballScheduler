@@ -8,7 +8,7 @@
             <c:import url="header.jsp" />
         </header>
         <main>
-            <form name="settingsForm" action="${pageContext.request.contextPath}/generationSettings" method="POST">
+            <form name="settingsForm" action="generationSettings" method="POST">
                 <h3>Number of Teams</h3>
                 <fieldset>
                     <input type="radio" id="fourTeams" value="4" name="numberTeams" checked="checked">

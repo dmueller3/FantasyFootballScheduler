@@ -2,6 +2,7 @@ package controller;
 
 import persistence.TeamDao;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import java.io.*;
@@ -25,7 +26,7 @@ public class ScheduleGenerationSettings extends HttpServlet {
      */
     public void doPost(HttpServletRequest request,
                        HttpServletResponse response)
-            throws IOException {
+            throws IOException, ServletException {
 
         // Reference the session
         HttpSession session = request.getSession();
@@ -44,12 +45,12 @@ public class ScheduleGenerationSettings extends HttpServlet {
         logger.info("Number of weeks: {}", numberOfWeeks);
         logger.info("Matchup frequency: {}", matchupFrequency);
 
-        // Store the form values in the session
-        session.setAttribute("numberOfTeams", numberOfTeams);
-        session.setAttribute("numberOfWeeks", numberOfWeeks);
-        session.setAttribute("matchupFrequency", matchupFrequency);
+        // Store the form values in the request
+        request.setAttribute("numberOfTeams", numberOfTeams);
+        request.setAttribute("numberOfWeeks", numberOfWeeks);
+        request.setAttribute("matchupFrequency", matchupFrequency);
 
         // Send the redirect to the form where team names are entered
-        response.sendRedirect("teamNames.jsp");
+        request.getRequestDispatcher("teamNames.jsp").forward(request, response);
     }
 }
