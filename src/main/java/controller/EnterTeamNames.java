@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.*;
 
@@ -15,12 +16,16 @@ import java.util.*;
  */
 @WebServlet("/enterNames")
 public class EnterTeamNames extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get the values from the request
-        int numberOfTeams = Integer.parseInt(request.getParameter("numberOfTeams"));
-        int numberOfWeeks = Integer.parseInt(request.getParameter("numberOfWeeks"));
-        int matchupFrequency = Integer.parseInt(request.getParameter("matchupFrequency"));
+        // Reference the session
+        HttpSession session = request.getSession();
+
+        // Get the values
+        int numberOfTeams = Integer.parseInt((String) session.getAttribute("numberOfTeams"));
+        int numberOfWeeks = Integer.parseInt((String) session.getAttribute("numberOfWeeks"));
+        int matchupFrequency = Integer.parseInt((String) session.getAttribute("matchupFrequency"));
 
         // Instantiate a list to hold the teams
         List<String> teams = new ArrayList<>();
