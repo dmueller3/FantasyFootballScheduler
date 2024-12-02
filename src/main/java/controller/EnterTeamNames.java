@@ -30,7 +30,7 @@ public class EnterTeamNames extends HttpServlet {
         // Instantiate a list to hold the teams
         List<String> teams = new ArrayList<>();
 
-        for (int i = 0; i < numberOfTeams; i++) {
+        for (int i = 1; i < numberOfTeams; i++) {
             String teamName = request.getParameter("team" + i);
             teams.add(teamName);
         }

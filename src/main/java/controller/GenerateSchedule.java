@@ -1,5 +1,8 @@
 package controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.*;
 
 /**
@@ -8,12 +11,13 @@ import java.util.*;
  * @author Derek Mueller
  */
 public class GenerateSchedule {
-    private static final int TEAMS_PER_MATCHUP = 2;
     private final int numberOfWeeks;
     private final List<String> selectedTeams;
     private final int matchupFrequency;
     private final Map<String, List<Integer>> previousMatchups;
     private final List<List<String>> schedule;
+
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     public GenerateSchedule(int numberOfWeeks, List<String> selectedTeams, int matchupFrequency) {
         this.numberOfWeeks = numberOfWeeks;
@@ -32,9 +36,9 @@ public class GenerateSchedule {
             /* Used Hamza Khan's response here for shuffling an arraylist
              * https://stackoverflow.com/questions/16112515/how-to-shuffle-an-arraylist
              */
-            Collections.shuffle(teamsNotAssigned);
+            Collections.shuffle(new ArrayList<>(teamsNotAssigned));
 
-            while (teamsNotAssigned.size() >= TEAMS_PER_MATCHUP) {
+            while (!teamsNotAssigned.isEmpty()) {
                 String team1 = teamsNotAssigned.get(0);
                 String team2 = teamsNotAssigned.get(1);
                 String matchup = team1 + " vs. " + team2;
@@ -44,8 +48,8 @@ public class GenerateSchedule {
                     matchupsForWeek.add(matchup);
 
                     // Track matchup and the week it occurred
-                    String key1 = team1 + "-" + team2;
-                    String key2 = team2 + "-" + team1;
+                    String key1 = team1 + " vs. " + team2;
+                    String key2 = team2 + " vs. " + team1;
                     previousMatchups.putIfAbsent(key1, new ArrayList<>());
                     previousMatchups.putIfAbsent(key2, new ArrayList<>());
                     previousMatchups.get(key1).add(weekNumber);
@@ -55,9 +59,10 @@ public class GenerateSchedule {
                     // Index is reset to 0
                     teamsNotAssigned.remove(0);
                 } else {
-                    Collections.shuffle(teamsNotAssigned);
+                    Collections.shuffle(new ArrayList<>(teamsNotAssigned));
                 }
             }
+            logger.info("Week " + weekNumber + " has been created: " + matchupsForWeek);
             schedule.add(matchupsForWeek);
         }
     }

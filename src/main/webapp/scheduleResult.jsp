@@ -9,7 +9,7 @@
 </header>
 <main>
   <h3>Schedule Generation Results</h3>
-  <table style="border: 1px black">
+  <table>
     <c:forEach var="week" items="${schedule}" varStatus="weekNumber">
       <tr>
         <td>Week ${weekNumber.index + 1}</td>

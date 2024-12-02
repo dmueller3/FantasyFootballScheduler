@@ -1,2 +1,12 @@
 h1 {text-align: center;}
 a {text-decoration: none;}
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+td {
+    border: solid 1px black;
+    text-align: center;
+    background-color: white;
+    padding: .5em;
+}
