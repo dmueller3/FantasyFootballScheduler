@@ -73,6 +73,7 @@ public class GenerateSchedule {
                 } else {
                     Collections.shuffle(teamsNotAssigned);
                 }
+                // TODO: Add handling to re-run week if stalled for longer than 3 seconds
             }
             logger.info("Matchups for week " + weekNumber + ": " + matchupsForWeek);
             schedule.add(matchupsForWeek);
