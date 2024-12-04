@@ -1,5 +1,8 @@
 package controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +19,7 @@ import java.util.*;
  */
 @WebServlet("/enterNames")
 public class EnterTeamNames extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,11 +31,17 @@ public class EnterTeamNames extends HttpServlet {
         int numberOfWeeks = Integer.parseInt((String) session.getAttribute("numberOfWeeks"));
         int matchupFrequency = Integer.parseInt((String) session.getAttribute("matchupFrequency"));
 
+        // Log the values
+        logger.info("Number of teams " + numberOfTeams);
+        logger.info("Number of weeks " + numberOfWeeks);
+        logger.info("Matchup frequency " + matchupFrequency);
+
         // Instantiate a list to hold the teams
         List<String> teams = new ArrayList<>();
 
-        for (int i = 1; i < numberOfTeams; i++) {
-            String teamName = request.getParameter("team" + i);
+        for (int i = 0; i < numberOfTeams; i++) {
+            String teamName = request.getParameter("team" + (i + 1));
+            logger.info("Team " + (i + 1) + ": " + teamName);
             teams.add(teamName);
         }
 

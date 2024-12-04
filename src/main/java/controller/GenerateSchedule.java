@@ -19,10 +19,19 @@ public class GenerateSchedule {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Constructor to get values of the weeks, teams, and matchup frequency
+     * @param numberOfWeeks the number of weeks in the schedule
+     * @param selectedTeams the teams selected for this schedule
+     * @param matchupFrequency the number of weeks before a matchup can be repeated
+     */
     public GenerateSchedule(int numberOfWeeks, List<String> selectedTeams, int matchupFrequency) {
+        // Get the values from the constructor
         this.numberOfWeeks = numberOfWeeks;
         this.selectedTeams = new ArrayList<>(selectedTeams);
         this.matchupFrequency = matchupFrequency;
+
+        // Instantiate the map of previous matchups and list to hold the schedule
         this.previousMatchups = new HashMap<>();
         this.schedule = new ArrayList<>();
     }
@@ -36,9 +45,10 @@ public class GenerateSchedule {
             /* Used Hamza Khan's response here for shuffling an arraylist
              * https://stackoverflow.com/questions/16112515/how-to-shuffle-an-arraylist
              */
-            Collections.shuffle(new ArrayList<>(teamsNotAssigned));
+            Collections.shuffle(teamsNotAssigned);
 
             while (!teamsNotAssigned.isEmpty()) {
+                // Select the first 2 teams in the list
                 String team1 = teamsNotAssigned.get(0);
                 String team2 = teamsNotAssigned.get(1);
                 String matchup = team1 + " vs. " + team2;
@@ -55,21 +65,23 @@ public class GenerateSchedule {
                     previousMatchups.get(key1).add(weekNumber);
                     previousMatchups.get(key2).add(weekNumber);
 
+                    // Remove the teams
                     teamsNotAssigned.remove(0);
                     // Index is reset to 0
                     teamsNotAssigned.remove(0);
+                    logger.info("teams not assigned: " + teamsNotAssigned);
                 } else {
-                    Collections.shuffle(new ArrayList<>(teamsNotAssigned));
+                    Collections.shuffle(teamsNotAssigned);
                 }
             }
-            logger.info("Week " + weekNumber + " has been created: " + matchupsForWeek);
+            logger.info("Matchups for week " + weekNumber + ": " + matchupsForWeek);
             schedule.add(matchupsForWeek);
         }
     }
 
     public boolean matchupValidity(String team1, String team2, int currentWeek) {
-        String matchupKey1 = team1 + "-" + team2;
-        String matchupKey2 = team2 + "-" + team1;
+        String matchupKey1 = team1 + " vs. " + team2;
+        String matchupKey2 = team2 + " vs. " + team1;
 
         // Retrieve the history for both matchup orders
         List<Integer> history1 = previousMatchups.getOrDefault(matchupKey1, Collections.emptyList());
