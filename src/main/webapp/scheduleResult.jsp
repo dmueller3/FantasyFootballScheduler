@@ -19,6 +19,19 @@
       </tr>
     </c:forEach>
   </table>
+  <div>
+    <!-- Regenerate the schedule with the same settings and teams -->
+    <form action="enterNames">
+      <input type="submit" value="Regenerate Schedule">
+    </form>
+    <c:choose>
+      <c:when test="${not empty userName}">
+        <form action="#">
+          <input type="submit" value="Save Schedule">
+        </form>
+      </c:when>
+    </c:choose>
+  </div>
 </main>
 </body>
 </html>

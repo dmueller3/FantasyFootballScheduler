@@ -10,3 +10,8 @@ td {
     background-color: white;
     padding: .5em;
 }
+input[type=submit] {
+    padding: 5px;
+    background:#ccc;
+    border-radius: .5em;
+}

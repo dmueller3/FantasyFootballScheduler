@@ -36,7 +36,6 @@
                 <input type="text" id="frequencyPlayed" name="frequencyPlayed" required>
                 <br><br>
                 <input type="submit" value="Submit">
-                <input type="reset" value="Clear fields">
             </form>
         </main>
     </body>
