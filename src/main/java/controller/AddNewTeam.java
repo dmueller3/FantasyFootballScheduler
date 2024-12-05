@@ -1,6 +1,6 @@
 package controller;
 
-import entity.TeamNames;
+import entity.Team;
 import persistence.TeamDao;
 
 import javax.servlet.RequestDispatcher;
@@ -21,7 +21,7 @@ public class AddNewTeam extends HttpServlet {
         String teamName = request.getParameter("teamName");
         String teamOwner = request.getParameter("teamOwner");
 
-        TeamNames team = new TeamNames(teamName, teamOwner);
+        Team team = new Team(teamName, teamOwner);
         teamDao.insert(team);
 
         request.setAttribute("teamName", teamName);

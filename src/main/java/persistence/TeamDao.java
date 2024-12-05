@@ -1,6 +1,6 @@
 package persistence;
 
-import entity.TeamNames;
+import entity.Team;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
@@ -18,36 +18,36 @@ public class TeamDao {
     private final Logger logger = LogManager.getLogger(this.getClass());
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
-    public TeamNames getById(int id) {
+    public Team getById(int id) {
         Session session = sessionFactory.openSession();
-        TeamNames teamNames = session.get( TeamNames.class, id );
+        Team team = session.get( Team.class, id );
         session.close();
-        return teamNames;
+        return team;
     }
 
-    public void update(TeamNames teamNames) {
+    public void update(Team team) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(teamNames);
+        session.merge(team);
         transaction.commit();
         session.close();
     }
 
-    public int insert(TeamNames teamNames) {
+    public int insert(Team team) {
         int id = 0;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.persist(teamNames);
+        session.persist(team);
         transaction.commit();
-        id = teamNames.getId();
+        id = team.getId();
         session.close();
         return id;
     }
 
-    public void delete(TeamNames teamNames) {
+    public void delete(Team team) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(teamNames);
+        session.delete(team);
         transaction.commit();
         session.close();
     }
@@ -57,14 +57,14 @@ public class TeamDao {
      *
      * @return All teamNames
      */
-    public List<TeamNames> getAll() {
+    public List<Team> getAll() {
 
         Session session = sessionFactory.openSession();
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<TeamNames> query = builder.createQuery(TeamNames.class);
-        Root<TeamNames> root = query.from(TeamNames.class);
-        List<TeamNames> teamNames = session.createSelectionQuery( query ).getResultList();
+        CriteriaQuery<Team> query = builder.createQuery(Team.class);
+        Root<Team> root = query.from(Team.class);
+        List<Team> teamNames = session.createSelectionQuery( query ).getResultList();
 
         logger.debug("The list of teamNames " + teamNames);
         session.close();
@@ -76,16 +76,16 @@ public class TeamDao {
      * Get teamNames by property (exact match)
      * sample usage: getByPropertyEqual("lastname", "Curry")
      */
-    public List<TeamNames> getByPropertyEqual(String propertyName, String value) {
+    public List<Team> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
         logger.debug("Searching for teamNames with " + propertyName + " = " + value);
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<TeamNames> query = builder.createQuery(TeamNames.class);
-        Root<TeamNames> root = query.from(TeamNames.class);
+        CriteriaQuery<Team> query = builder.createQuery(Team.class);
+        Root<Team> root = query.from(Team.class);
         query.select(root).where(builder.equal(root.get(propertyName), value));
-        List<TeamNames> teamNames = session.createSelectionQuery( query ).getResultList();
+        List<Team> teamNames = session.createSelectionQuery( query ).getResultList();
 
         session.close();
         return teamNames;
@@ -95,19 +95,19 @@ public class TeamDao {
      * Get teamNames by property (like)
      * sample usage: getByPropertyLike("lastname", "C")
      */
-    public List<TeamNames> getByPropertyLike(String propertyName, String value) {
+    public List<Team> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
 
         logger.debug("Searching for teamNames with {} = {}",  propertyName, value);
 
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
-        CriteriaQuery<TeamNames> query = builder.createQuery(TeamNames.class);
-        Root<TeamNames> root = query.from( TeamNames.class );
+        CriteriaQuery<Team> query = builder.createQuery(Team.class);
+        Root<Team> root = query.from( Team.class );
         Expression<String> propertyPath = root.get(propertyName);
 
         query.where(builder.like(propertyPath, "%" + value + "%"));
 
-        List<TeamNames> teamNames = session.createQuery( query ).getResultList();
+        List<Team> teamNames = session.createQuery( query ).getResultList();
         session.close();
         return teamNames;
     }

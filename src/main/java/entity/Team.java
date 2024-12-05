@@ -9,7 +9,7 @@ import jakarta.persistence.*;
  */
 @Entity
 @Table(name = "teams")
-public class TeamNames {
+public class Team {
     @Column(name = "team_name")
     private String teamName;
     @Column(name = "team_owner")
@@ -23,7 +23,7 @@ public class TeamNames {
     /**
      * Empty constructor to instantiate a new team
      */
-    public TeamNames() {
+    public Team() {
 
     }
 
@@ -33,7 +33,7 @@ public class TeamNames {
      * @param teamName  the name of the fantasy football team
      * @param teamOwner the owner of the fantasy football team
      */
-    public TeamNames(String teamName, String teamOwner) {
+    public Team(String teamName, String teamOwner) {
         this.teamName = teamName;
         this.teamOwner = teamOwner;
     }
@@ -94,6 +94,6 @@ public class TeamNames {
 
     @Override
     public String toString() {
-        return "TeamNames [teamName=" + teamName + ", teamOwner=" + teamOwner + "]";
+        return "Team [teamName=" + teamName + ", teamOwner=" + teamOwner + "]";
     }
 }

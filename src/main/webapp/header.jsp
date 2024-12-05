@@ -2,10 +2,10 @@
 <div id="header">
     <c:choose>
         <c:when test="${empty userName}">
-            <a href = "logIn">Login</a>
+            <a href = "logIn" class="loginlogout">Login</a>
         </c:when>
         <c:otherwise>
-            <a href="#">Logout</a><p>   Welcome ${userName}</p>
+            <a href="#" class="loginlogout">Logout</a><p>   Welcome ${userName}</p>
         </c:otherwise>
     </c:choose>
     <h1><a href="index.jsp">Fantasy Football Scheduler</a></h1>
