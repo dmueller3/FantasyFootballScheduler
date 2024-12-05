@@ -16,6 +16,7 @@ public class GenerateSchedule {
     private final int matchupFrequency;
     private final Map<String, List<Integer>> previousMatchups;
     private final List<List<String>> schedule;
+    private final List<String> shuffleHistory;
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
@@ -31,9 +32,10 @@ public class GenerateSchedule {
         this.selectedTeams = new ArrayList<>(selectedTeams);
         this.matchupFrequency = matchupFrequency;
 
-        // Instantiate the map of previous matchups and list to hold the schedule
+        // Instantiate local variables
         this.previousMatchups = new HashMap<>();
         this.schedule = new ArrayList<>();
+        this.shuffleHistory = new ArrayList<>();
     }
 
     public void scheduleCreation() {
@@ -42,10 +44,18 @@ public class GenerateSchedule {
             List<String> matchupsForWeek = new ArrayList<>();
             List<String> teamsNotAssigned = new ArrayList<>(selectedTeams);
 
+
             /* Used Hamza Khan's response here for shuffling an arraylist
              * https://stackoverflow.com/questions/16112515/how-to-shuffle-an-arraylist
              */
-            Collections.shuffle(teamsNotAssigned);
+            do {
+                Collections.shuffle(teamsNotAssigned);
+            } while (shuffleHistory.contains(teamsNotAssigned.toString()));
+
+            shuffleHistory.add(teamsNotAssigned.toString());
+            if (shuffleHistory.size() > matchupFrequency) {
+                shuffleHistory.remove(0);
+            }
 
             while (!teamsNotAssigned.isEmpty()) {
                 // Select the first 2 teams in the list
@@ -73,7 +83,6 @@ public class GenerateSchedule {
                 } else {
                     Collections.shuffle(teamsNotAssigned);
                 }
-                // TODO: Add handling to re-run week if stalled for longer than 3 seconds
             }
             logger.info("Matchups for week " + weekNumber + ": " + matchupsForWeek);
             schedule.add(matchupsForWeek);
