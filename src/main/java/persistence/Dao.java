@@ -1,136 +1,164 @@
 package persistence;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import entity.Team;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Expression;
+import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.criteria.HibernateCriteriaBuilder;
-import org.hibernate.query.criteria.JpaCriteriaQuery;
 
 import java.util.List;
 
 /**
- * Generic data access object that queries the database.
- * @param <T> The DTO object corresponding to a table in the database.
+ * A generic DAO somewhat inspired by http://rodrigouchoa.wordpress.com
+ *
  */
 public class Dao<T> {
 
-    protected static final Logger LOG = LogManager.getLogger(Dao.class);
-    protected static final SessionFactory SESSION_FACTORY = SessionFactoryProvider.getSessionFactory();
+    private Class<T> type;
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
-    protected final Class<T> ENTITY_CLASS;
 
     /**
-     * Constructor that stores object's class for use with Hibernate.
-     * This information is not available at runtime.
-     * @param entityClass object' class
+     * Instantiates a new Generic dao.
+     *
+     * @param type the entity type, for example, User.
      */
-    public Dao(Class<T> entityClass) {
-        this.ENTITY_CLASS = entityClass;
+    public Dao(Class<T> type) {
+        this.type = type;
     }
 
     /**
-     * Get entity by id.
-     * @param id unique entity id
-     * @return entity object, or null if not found
+     * Gets all entities
+     *
+     * @return the all entities
      */
-    public T getById(long id) {
-        LOG.debug("Searching entity by id: {}", id);
-        Session session = SESSION_FACTORY.openSession();
-        T entity = session.get(ENTITY_CLASS, id);
+    public List<T> getAll() {
+        Session session = getSession();
+        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        List<T> list = session.createSelectionQuery(query).getResultList();
+        session.close();
+        return list;
+
+    }
+
+    /**
+     * Gets an entity by id
+     * @param id entity id to search by
+     * @return entity
+     */
+    public <T> T getById(int id) {
+        Session session = getSession();
+        T entity = (T)session.get(type, id);
         session.close();
         return entity;
     }
 
     /**
-     * Updates the current entity in the database.
-     * @param entity the entity to save into the database
-     */
-    public void update(T entity) {
-        LOG.debug("Updating entity: {}", entity);
-        SESSION_FACTORY.inTransaction(session -> {
-            session.merge(entity);
-        });
-    }
-
-    /**
-     * Inserts a new entity into the database.
-     * Entity's new id will be added to the object.
-     * @param entity the entity to insert into the database
-     */
-    public void insert(T entity) {
-        LOG.debug("Inserting entity: {}", entity);
-        SESSION_FACTORY.inTransaction(session -> {
-            session.persist(entity);
-        });
-    }
-
-    /**
-     * Removes the entity from the database.
-     * @param entity the entity to remove
+     * Deletes the entity.
+     *
+     * @param entity entity to be deleted
      */
     public void delete(T entity) {
-        LOG.debug("Deleting entity: {}", entity);
-        SESSION_FACTORY.inTransaction(session -> {
-            session.remove(entity);
-        });
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        session.remove(entity);
+        transaction.commit();
+        session.close();
+    }
+
+
+    /**
+     * Inserts the entity.
+     *
+     * @param entity entity to be inserted
+     */
+    public int insert(T entity) {
+        int id = 0;
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        // TODO we are using a deprecated method here, is there a better way?
+        id = (int)session.save(entity);
+        transaction.commit();
+        session.close();
+        return id;
     }
 
     /**
-     * Get all entities from the database.
-     * @return a list of all entities
+     * Inserts or updates the entity.
+     *
+     * @param entity entity to be inserted/saved
      */
-    public List<T> getAll() {
-        Session session = SESSION_FACTORY.openSession();
-
-        HibernateCriteriaBuilder b = session.getCriteriaBuilder();
-        JpaCriteriaQuery<T> q = b.createQuery(ENTITY_CLASS);
-        Root<T> root = q.from(ENTITY_CLASS);
-
-        List<T> entities = session.createQuery(q).getResultList();
+    public void update(T entity) {
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        session.merge(entity);
+        transaction.commit();
         session.close();
-        LOG.debug("Found {} entities.", entities.size());
-        return entities;
+    }
+
+
+    /**
+     * Finds entities by one of its properties.
+     * sample usage: findByPropertyEqual("lastname", "Curry")
+     * @param propertyName the property name.
+     * @param value the value by which to find.
+     * @return the list of all entities found matching the criteria
+     */
+    public List<T> findByPropertyEqual(String propertyName, Object value) {
+        Session session = getSession();
+        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.select(root).where(builder.equal(root.get(propertyName),value));
+        List<T> items = session.createSelectionQuery( query ).getResultList();
+        session.close();
+        return items;
     }
 
     /**
-     * Get a list of all entities that match the property=value condition.
-     * @param property the name of the entity object field
-     * @param value the value to compare against
-     * @return a list of entities matching the search criteria
-     */
-    public List<T> getByPropertyEquals(String property, Object value) {
-        LOG.debug("Searching entities by {} equal to '{}'", property, value);
-        Session session = SESSION_FACTORY.openSession();
-        HibernateCriteriaBuilder b = session.getCriteriaBuilder();
-        JpaCriteriaQuery<T> q = b.createQuery(ENTITY_CLASS);
-        Root<T> root = q.from(ENTITY_CLASS);
-        q.select(root).where(b.equal(root.get(property), value));
+     * Finds entities by multiple properties.
+     * Inspired by https://stackoverflow.com/questions/11138118/really-dynamic-jpa-criteriabuilder
 
-        List<T> entities = session.createQuery(q).getResultList();
+     * @param propertyMap property and value pairs
+     * @return entities with properties equal to those passed in the map
+     *
+     *
+     */
+    public List<T> findByPropertyEqual(Map<String, Object> propertyMap) {
+        Session session = getSession();
+        HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        List<Predicate> predicates = new ArrayList<Predicate>();
+        for (Map.Entry entry: propertyMap.entrySet()) {
+            predicates.add(builder.equal(root.get((String) entry.getKey()), entry.getValue()));
+        }
+        query.select(root).where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
+        List<T> items = session.createSelectionQuery( query ).getResultList();
         session.close();
-        LOG.debug("Found {} entities.", entities.size());
-        return entities;
+        return items;
     }
+
 
     /**
-     * Get a list of all entities that match the property LIKE %value% condition.
-     * @param property the name of the enitity object field
-     * @param value the substring value
-     * @return a list of entities matching the search criteria
+     * Returns an open session from the SessionFactory
+     * @return session
      */
-    public List<T> getByPropertySubstring(String property, String value) {
-        LOG.debug("Searching for entities by {} that contains '{}'", property, value);
-        Session session = SESSION_FACTORY.openSession();
-        HibernateCriteriaBuilder b = session.getCriteriaBuilder();
-        JpaCriteriaQuery<T> q = b.createQuery(ENTITY_CLASS);
-        Root<T> root = q.from(ENTITY_CLASS);
-        q.select(root).where(b.like(b.lower(root.get(property)), String.format("%%%s%%", value.toLowerCase())));
+    private Session getSession() {
+        return SessionFactoryProvider.getSessionFactory().openSession();
 
-        List<T> entities = session.createQuery(q).getResultList();
-        LOG.debug("Found {} entities.", entities.size());
-        session.close();
-        return entities;
     }
+
 }
