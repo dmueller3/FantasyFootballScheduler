@@ -23,18 +23,18 @@ DROP TABLE IF EXISTS `matchups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `matchups` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `team_1` int DEFAULT NULL,
   `team_2` int DEFAULT NULL,
   `week_number` int DEFAULT NULL,
   `schedule_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`user_id`),
   KEY `schedule_id` (`schedule_id`),
   KEY `team_1` (`team_1`),
   KEY `team_2` (`team_2`),
-  CONSTRAINT `schedule_id` FOREIGN KEY (`schedule_id`) REFERENCES `schedules` (`id`),
-  CONSTRAINT `team_1` FOREIGN KEY (`team_1`) REFERENCES `teams` (`id`),
-  CONSTRAINT `team_2` FOREIGN KEY (`team_2`) REFERENCES `teams` (`id`)
+  CONSTRAINT `schedule_id` FOREIGN KEY (`schedule_id`) REFERENCES `schedules` (`user_id`),
+  CONSTRAINT `team_1` FOREIGN KEY (`team_1`) REFERENCES `teams` (`user_id`),
+  CONSTRAINT `team_2` FOREIGN KEY (`team_2`) REFERENCES `teams` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -55,13 +55,13 @@ DROP TABLE IF EXISTS `schedules`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `schedules` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int DEFAULT NULL,
   `date_of_creation` datetime DEFAULT NULL,
   `number_of_weeks` int DEFAULT NULL,
   `number_of_teams` int DEFAULT NULL,
   `matchup_frequency_limit` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -82,10 +82,10 @@ DROP TABLE IF EXISTS `teams`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `teams` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL AUTO_INCREMENT,
   `team_name` varchar(25) DEFAULT NULL,
   `team_owner` varchar(25) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

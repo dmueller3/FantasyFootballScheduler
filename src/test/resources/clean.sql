@@ -69,7 +69,9 @@ CREATE TABLE `schedules` (
   `number_of_weeks` int DEFAULT NULL,
   `number_of_teams` int DEFAULT NULL,
   `matchup_frequency_limit` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `schedules_users_user_id_fk` (`user_id`),
+  CONSTRAINT `schedules_users_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -94,7 +96,7 @@ CREATE TABLE `teams` (
   `team_name` varchar(25) DEFAULT NULL,
   `team_owner` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +105,7 @@ CREATE TABLE `teams` (
 
 LOCK TABLES `teams` WRITE;
 /*!40000 ALTER TABLE `teams` DISABLE KEYS */;
-INSERT INTO `teams` VALUES (1,'Team 1','Joe Cool'),(2,'Team 2','Bill Smith'),(3,'Dak and Cheese','Andrew'),(4,'The Love Train','Tommy'),(5,'Dragons','Daniel'),(6,'Vertical Rabbits','Jacob'),(7,'I need new friends','Wes'),(8,'Cool Team','Rodney');
+INSERT INTO `teams` VALUES (1,'Team 1','Joe Cool'),(2,'Team 2','Bill Smith'),(3,'Dak and Cheese','Andrew'),(4,'The Love Train','Tommy'),(5,'Dragons','Daniel'),(6,'Vertical Rabbits','Jacob'),(7,'I need new friends','Wes'),(8,'Cool Team','Rodney'),(9,'Fancy Cats','Julie');
 /*!40000 ALTER TABLE `teams` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,4 +143,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-06 18:41:54
+-- Dump completed on 2024-12-06 22:06:27

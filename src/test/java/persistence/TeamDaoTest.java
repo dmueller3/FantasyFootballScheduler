@@ -53,7 +53,7 @@ public class TeamDaoTest {
     @Test
     public void getAll() {
         List<Team> teams = TEAM_DAO.getAll();
-        assertEquals(8, teams.size());
+        assertEquals(9, teams.size());
     }
 
     @Test

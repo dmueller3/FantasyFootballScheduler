@@ -14,8 +14,8 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @GenericGenerator(name = "native")
-    private int id;
+    @GenericGenerator(name = "user_id")
+    private int user_id;
 
     /**
      * Empty constructor
@@ -52,21 +52,21 @@ public class User {
     }
 
     /**
-     * Gets id.
+     * Gets user_id.
      *
-     * @return the id
+     * @return the user_id
      */
-    public int getId() {
-        return id;
+    public int getUser_id() {
+        return user_id;
     }
 
     /**
-     * Sets id.
+     * Sets user_id.
      *
-     * @param id the id
+     * @param user_id the user_id
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public String toString() {
