@@ -49,4 +49,4 @@ crashlytics-build.properties
 fabric.properties
 
 # files with sensitive data
-/src/main/java/resources
+/src/main/resources
