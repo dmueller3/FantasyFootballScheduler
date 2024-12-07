@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+/**
+ * The type Add new team.
+ */
 @WebServlet("/addTeamServlet")
 public class AddNewTeam extends HttpServlet {
 

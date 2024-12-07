@@ -26,6 +26,9 @@ public class Schedule {
     @GenericGenerator(name = "native")
     private int id;
 
+    public Schedule(int userID, Object o) {
+    }
+
     /**
      * Gets id.
      *
@@ -51,17 +54,10 @@ public class Schedule {
 
     }
 
-    /**
-     * Instantiates a new Schedule.
-     *
-     * @param dateOfCreation   the date of creation
-     * @param numberOfWeeeks   the number of weeeks
-     * @param numberOfTeams    the number of teams
-     * @param matchupFrequency the matchup frequency
-     */
-    public Schedule(String dateOfCreation, int numberOfWeeeks, int numberOfTeams, int matchupFrequency) {
+    public Schedule(int user_id, String dateOfCreation, int numberOfWeeks, int numberOfTeams, int matchupFrequency) {
+        this.user_id = user_id;
         this.dateOfCreation = dateOfCreation;
-        this.numberOfWeeks = numberOfWeeeks;
+        this.numberOfWeeks = numberOfWeeks;
         this.numberOfTeams = numberOfTeams;
         this.matchupFrequency = matchupFrequency;
     }

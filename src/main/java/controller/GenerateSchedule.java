@@ -151,6 +151,7 @@ public class GenerateSchedule {
     }
 
     public List<List<String>> getSchedule() {
+
         return schedule;
     }
 }
