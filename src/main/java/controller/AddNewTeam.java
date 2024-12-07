@@ -1,7 +1,7 @@
 package controller;
 
 import entity.Team;
-import persistence.TeamDao;
+import persistence.Dao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,13 +16,13 @@ public class AddNewTeam extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        TeamDao teamDao = new TeamDao();
+        Dao<Team> TEAM_DAO = new Dao<>(Team.class);
 
         String teamName = request.getParameter("teamName");
         String teamOwner = request.getParameter("teamOwner");
 
         Team team = new Team(teamName, teamOwner);
-        teamDao.insert(team);
+        TEAM_DAO.insert(team);
 
         request.setAttribute("teamName", teamName);
         request.setAttribute("teamOwner", teamOwner);

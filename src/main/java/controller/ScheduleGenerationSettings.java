@@ -1,8 +1,8 @@
 package controller;
 
-import persistence.TeamDao;
+import entity.Team;
+import persistence.Dao;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
@@ -28,8 +28,8 @@ public class ScheduleGenerationSettings extends HttpServlet {
         HttpSession session = request.getSession();
 
         // Get the team names from the database
-        TeamDao teamDao = new TeamDao();
-        session.setAttribute("teams", teamDao.getAll());
+        Dao<Team> TEAM_DAO = new Dao<>(Team.class);
+        session.setAttribute("teams", TEAM_DAO.getAll());
 
         // Get the form inputs
         String numberOfTeams = request.getParameter("numberTeams");
