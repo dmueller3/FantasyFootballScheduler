@@ -11,10 +11,10 @@
     <h3>Add a Team</h3>
     <form action="addTeamServlet" method="POST">
         <label for="teamName">Team Name</label>
-        <input type="text" user_id="teamName" name="teamName" required/><br>
+        <input type="text" id="teamName" name="teamName" required/><br>
         <br>
         <label for="teamOwner">Team Owner</label>
-        <input type="text" user_id="teamOwner" name="teamOwner" required/><br>
+        <input type="text" id="teamOwner" name="teamOwner" required/><br>
         <br>
         <input type="submit" value="Add Team" />
     </form>
