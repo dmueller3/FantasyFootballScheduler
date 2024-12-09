@@ -1,4 +1,12 @@
-h1 {text-align: center;}
+body {margin: auto 0}
+main {
+    font-family: Arial, serif;
+    padding: 2em;
+    margin: 1em 2em;
+    background-color: #ede9e1;
+    border-radius: 2em;
+}
+h1, h2 {text-align: center;}
 a {text-decoration: none;}
 a:visited {
     text-decoration: none; /* Removes underline */
@@ -14,6 +22,7 @@ td {
     background-color: white;
     padding: .5em;
 }
+#mainPageButtons, #generationOptionsButtons {text-align: center}
 input[type=submit], #mainPageButtons a {
     padding: 5px;
     background:#ccc;

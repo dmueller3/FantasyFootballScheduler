@@ -4,11 +4,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<header>
-  <c:import url="header.jsp" />
-</header>
 <main>
-  <h3>Schedule Generation Results</h3>
+  <header>
+    <c:import url="header.jsp" />
+  </header>
+  <h2>Schedule Generation Results</h2>
   <table>
     <c:forEach var="week" items="${schedule}" varStatus="weekNumber">
       <tr>
@@ -19,7 +19,7 @@
       </tr>
     </c:forEach>
   </table>
-  <div>
+  <div id="generationOptionsButtons">
     <!-- Regenerate the schedule with the same settings and teams -->
     <form action="enterNames">
       <input type="submit" value="Regenerate Schedule">

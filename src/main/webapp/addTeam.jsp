@@ -4,10 +4,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<header>
-    <c:import url="header.jsp" />
-</header>
 <main>
+    <header>
+        <c:import url="header.jsp" />
+    </header>
     <h3>Add a Team</h3>
     <form action="addTeamServlet" method="POST">
         <label for="teamName">Team Name</label>

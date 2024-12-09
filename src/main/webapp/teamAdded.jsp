@@ -4,10 +4,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <body>
-<header>
-    <c:import url="header.jsp" />
-</header>
 <main>
+    <header>
+        <c:import url="header.jsp" />
+    </header>
     <h3>The following team was added</h3>
 
     <h4>Team Name</h4>

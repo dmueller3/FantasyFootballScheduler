@@ -4,10 +4,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <body>
-    <header>
-        <c:import url="header.jsp" />
-    </header>
       <main>
+          <header>
+              <c:import url="header.jsp" />
+          </header>
         <h3>Enter Team Names</h3>
           <form action="enterNames" method="POST">
               <!-- used Ravi K Thapliyal's response to use sessionScope to get the team names
