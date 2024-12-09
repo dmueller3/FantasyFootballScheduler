@@ -51,7 +51,6 @@ public class Dao<T> {
         List<T> list = session.createSelectionQuery(query).getResultList();
         session.close();
         return list;
-
     }
 
     /**
