@@ -11,6 +11,7 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * The type Add schedule to history.
@@ -32,7 +33,12 @@ public class AddScheduleToHistory {
         Dao<Schedule> SCHEDULE_DAO = new Dao<>(Schedule.class);
         Schedule schedule = new Schedule(userID, currentDate, numberOfTeams, numberOfWeeks, matchupFrequency);
 
-        SCHEDULE_DAO.insert(schedule);
+        int scheduleID = SCHEDULE_DAO.insert(schedule);
+
+        AddMatchups addMatchups = new AddMatchups();
+
+        List<List<String>> generatedSchedule = (List<List<String>>) session.getAttribute("schedule");
+        addMatchups.addMatchupsToDatabase(generatedSchedule, scheduleID);
 
         RequestDispatcher view = request.getRequestDispatcher("scheduleAdded.jsp");
         view.forward(request, response);
