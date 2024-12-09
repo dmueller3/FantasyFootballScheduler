@@ -26,7 +26,7 @@
     </form>
     <c:choose>
       <c:when test="${not empty userName}">
-        <form action="addSchedule" method="get">
+        <form action="addSchedule" method="GET">
           <input type="submit" value="Save Schedule">
         </form>
       </c:when>

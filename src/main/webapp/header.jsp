@@ -5,7 +5,7 @@
             <a href = "logIn" class="loginlogout">Login</a>
         </c:when>
         <c:otherwise>
-            <a href="#" class="loginlogout">Logout</a><p>   Welcome ${sessionScope.userName}</p>
+            <a href="logOut" class="loginlogout">Logout</a><p>   Welcome ${sessionScope.userName}</p>
         </c:otherwise>
     </c:choose>
     <h1><a href="index.jsp">Fantasy Football Scheduler</a></h1>
