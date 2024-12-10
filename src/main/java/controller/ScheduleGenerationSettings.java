@@ -8,6 +8,9 @@ import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import java.io.*;
 
+/**
+ * The type Schedule generation settings.
+ */
 @WebServlet(
         urlPatterns = {"/generationSettings"}
 )

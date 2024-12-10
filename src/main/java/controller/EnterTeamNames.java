@@ -15,6 +15,7 @@ import java.util.*;
 
 /**
  * Allows the user to enter the teams for the schedule maker
+ *
  * @author Derek Mueller
  */
 @WebServlet("/enterNames")

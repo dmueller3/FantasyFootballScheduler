@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Get user schedules.
+ */
 @WebServlet("/scheduleHistory")
 public class GetUserSchedules extends HttpServlet {
     @Override

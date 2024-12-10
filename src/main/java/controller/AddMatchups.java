@@ -7,10 +7,25 @@ import persistence.Dao;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ * The type Add matchups.
+ */
 public class AddMatchups {
+    /**
+     * The Matchup dao.
+     */
     Dao<Matchup> MATCHUP_DAO = new Dao<>(Matchup.class);
+    /**
+     * The Team dao.
+     */
     Dao<Team> TEAM_DAO = new Dao<>(Team.class);
 
+    /**
+     * Add matchups to database.
+     *
+     * @param schedule   the schedule
+     * @param scheduleID the schedule id
+     */
     public void addMatchupsToDatabase(List<List<String>> schedule, int scheduleID) {
         int weekNumber = 1;
 

@@ -21,8 +21,9 @@ public class GenerateSchedule {
 
     /**
      * Constructor to get values of the weeks, teams, and matchup frequency
-     * @param numberOfWeeks the number of weeks in the schedule
-     * @param selectedTeams the teams selected for this schedule
+     *
+     * @param numberOfWeeks    the number of weeks in the schedule
+     * @param selectedTeams    the teams selected for this schedule
      * @param matchupFrequency the number of weeks before a matchup can be repeated
      */
     public GenerateSchedule(int numberOfWeeks, List<String> selectedTeams, int matchupFrequency) {
@@ -172,8 +173,9 @@ public class GenerateSchedule {
 
     /**
      * Check if the matchup is valid based on matchyp history and frequency
-     * @param team1 the first team
-     * @param team2 the second team
+     *
+     * @param team1       the first team
+     * @param team2       the second team
      * @param currentWeek the current week in the schedule
      * @return whether the matchup is valid
      */
@@ -192,6 +194,7 @@ public class GenerateSchedule {
 
     /**
      * gets the schedule and matchups
+     *
      * @return the generated schedule
      */
     public List<List<String>> getSchedule() {
