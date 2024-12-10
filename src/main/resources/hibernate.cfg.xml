@@ -19,6 +19,8 @@
 
         <mapping class="entity.Team" />
         <mapping class="entity.User" />
+        <mapping class="entity.Schedule" />
+        <mapping class="entity.Matchup" />
     </session-factory>
 
 </hibernate-configuration>

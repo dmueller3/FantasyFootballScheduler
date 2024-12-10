@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 /**
  * The type Schedule.
  */
@@ -13,7 +15,7 @@ public class Schedule {
     @Column(name = "user_id")
     private int user_id;
     @Column(name = "date_of_creation")
-    private String dateOfCreation;
+    private LocalDateTime dateOfCreation;
     @Column(name = "number_of_weeks")
     private int numberOfWeeks;
     @Column(name = "number_of_teams")
@@ -54,7 +56,7 @@ public class Schedule {
 
     }
 
-    public Schedule(int user_id, String dateOfCreation, int numberOfWeeks, int numberOfTeams, int matchupFrequency) {
+    public Schedule(int user_id, LocalDateTime dateOfCreation, int numberOfWeeks, int numberOfTeams, int matchupFrequency) {
         this.user_id = user_id;
         this.dateOfCreation = dateOfCreation;
         this.numberOfWeeks = numberOfWeeks;
@@ -85,7 +87,7 @@ public class Schedule {
      *
      * @return the date of creation
      */
-    public String getDateOfCreation() {
+    public LocalDateTime getDateOfCreation() {
         return dateOfCreation;
     }
 
@@ -94,7 +96,7 @@ public class Schedule {
      *
      * @param dateOfCreation the date of creation
      */
-    public void setDateOfCreation(String dateOfCreation) {
+    public void setDateOfCreation(LocalDateTime dateOfCreation) {
         this.dateOfCreation = dateOfCreation;
     }
 

@@ -47,9 +47,9 @@ public class AddScheduleToHistory extends HttpServlet {
         logger.info("current date " + currentDate);
 
         Dao<Schedule> SCHEDULE_DAO = new Dao<>(Schedule.class);
-        Schedule schedule = new Schedule(userID, currentDate, numberOfTeams, numberOfWeeks, matchupFrequency);
+        Schedule schedule = new Schedule(userID, currentDate, numberOfWeeks, numberOfTeams, matchupFrequency);
 
-        int scheduleID = SCHEDULE_DAO.insert(schedule);
+        SCHEDULE_DAO.insert(schedule);
 
         /*
         AddMatchups addMatchups = new AddMatchups();
