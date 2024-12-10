@@ -8,8 +8,8 @@
   <header>
     <c:import url="header.jsp" />
   </header>
-  <h3>Schedule Added</h3>
-
+  <h2>Schedule Added</h2>
+  <h2>Your schedule was successfully added!</h2>
   <a href="index.jsp">Back to the homepage</a>
 </main>
 </body>
