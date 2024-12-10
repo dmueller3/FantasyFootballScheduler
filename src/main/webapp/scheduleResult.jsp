@@ -27,10 +27,6 @@
     </c:otherwise>
   </c:choose>
   <div id="generationOptionsButtons">
-    <!-- Regenerate the schedule with the same settings and teams -->
-    <form action="enterNames">
-      <input type="submit" value="Regenerate Schedule">
-    </form>
     <c:choose>
       <c:when test="${not empty userName}">
         <form action="addSchedule" method="GET">

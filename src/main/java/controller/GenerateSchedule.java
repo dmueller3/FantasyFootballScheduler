@@ -108,7 +108,7 @@ public class GenerateSchedule {
                 matchupsForWeek.add(matchup);
                 trackMatchup(team1, team2, currentWeek);
 
-                teamsNotAssigned.remove(pair[1]); // Remove by index (higher first)
+                teamsNotAssigned.remove(pair[1]);
                 teamsNotAssigned.remove(pair[0]);
 
                 if (generateWeekSchedule(teamsNotAssigned, matchupsForWeek, currentWeek)) {

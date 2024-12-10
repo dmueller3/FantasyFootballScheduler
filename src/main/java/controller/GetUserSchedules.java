@@ -36,7 +36,12 @@ public class GetUserSchedules extends HttpServlet {
         for (Schedule schedule : savedSchedules) {
             String dateCreated = schedule.getDateOfCreation().toString();
             int scheduleID = schedule.getId();
-            scheduleDetails.add("Schedule " + scheduleID + " created at " + dateCreated);
+            int numberOfWeeks = schedule.getNumberOfWeeks();
+
+            String scheduleLink = "<a href='getSchedule?scheduleID=" + scheduleID + "&numberOfWeeks=" + numberOfWeeks
+                    + "'>" + "Schedule generated: " + dateCreated + "</a>" + scheduleID;
+
+            scheduleDetails.add(scheduleLink);
         }
 
         request.setAttribute("scheduleDetails", scheduleDetails);
