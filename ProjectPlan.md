@@ -75,19 +75,17 @@
 - [x] JSP/JSTL tag cleanup
 
 ### Week 14
-- [ ] Heavy CSS and UI work
-- [ ] Finish schedule creation code
-- [ ] Connect entries to database
-- [ ] Implement the generic DAO
+- [x] Handle Schedule Generation and Display
+- [x] Add User entity
 
 ### Week 15
-- [ ] Implement Feedback from Week 14 review
-- [ ] Final Presentation
-- [ ] Create video, add video link to readme.md
-- [ ] Finalize all documentation
-- [ ] Code quality check
-- [ ] Weekly journal entry
+- [x] Allow more teams to be added
+- [x] Implement Generic Dao
+- [x] Fix Schedule Generation
+- [x] CSS/UI work
+- [x] Create Schedule and Matchup Entities
+- [x] Allow schedule saving and viewing saved schedules
 
 ### Week 16
-- [ ] Weekly journal entry
-- [ ] Final touches before code complete
+- [x] Weekly journal entry
+- [x] Final touches before code complete

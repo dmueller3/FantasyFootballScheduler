@@ -34,3 +34,4 @@
 | 12/7/24  | Created entities, began process of adding schedules                                                       | 3     | |
 | 12/8/24  | CSS/UI work, handled adding a schedule and matchups to the database                                       | 4     | |
 | 12/9/24  | CSS/UI work, handled getting a schedule and matchup from history                                          | 4     | |
+| 12/10/24 | Final touches                                                                                             | 4     | |
