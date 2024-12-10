@@ -24,7 +24,7 @@ public class GetUserSchedules extends HttpServlet {
 
         // Get the ID for the logged in user
         Dao<User> USER_DAO = new Dao<>(User.class);
-        String userName = "dmueller3"; //(String) session.getAttribute("userName");
+        String userName = (String) session.getAttribute("userName");
         List<User> user = USER_DAO.findByPropertyEqual("userName", userName);
         int userID = user.get(0).getUser_id();
 

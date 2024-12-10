@@ -9,9 +9,16 @@
     <c:import url="header.jsp" />
   </header>
   <h2>Previous Schedule Generation</h2>
-      <table>
-
-      </table>
+  <table>
+    <c:forEach var="week" items="${schedule}" varStatus="weekNumber">
+      <tr>
+        <td>Week ${weekNumber.index + 1}</td>
+        <c:forEach var="matchup" items="${week}">
+          <td>${matchup}</td>
+        </c:forEach>
+      </tr>
+    </c:forEach>
+  </table>
 </main>
 </body>
 </html>

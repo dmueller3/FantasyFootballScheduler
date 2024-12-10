@@ -1,6 +1,8 @@
 package controller;
 
 import entity.Matchup;
+import entity.Team;
+import entity.User;
 import persistence.Dao;
 
 import javax.servlet.RequestDispatcher;
@@ -19,26 +21,33 @@ public class GetSpecificSchedule extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // List to hold matchups
         List<List<String>> schedule = new ArrayList<>();
-        // Get the matchup Dao
+        // Get the Dao
         Dao<Matchup> MATCHUP_DAO = new Dao<>(Matchup.class);
+        Dao<Team> TEAM_DAO = new Dao<>(Team.class);
+
         // Get the scheduleID and number of weeks from the request param
-        int scheduleId = Integer.parseInt(request.getParameter("scheduleId"));
+        int scheduleID = Integer.parseInt(request.getParameter("scheduleID"));
         int numberOfWeeks = Integer.parseInt(request.getParameter("numberOfWeeks"));
 
-        List<Matchup> matchups = MATCHUP_DAO.findByPropertyEqual("scheduleId", scheduleId);
+        List<Matchup> matchups = MATCHUP_DAO.findByPropertyEqual("scheduleID", scheduleID);
 
-        int currentWeek = 1;
+        // Initialize the schedule with empty lists for each week
+        for (int i = 0; i < numberOfWeeks; i++) {
+            schedule.add(new ArrayList<>());
+        }
 
+        // Add the weekly matchups
         for (Matchup matchup : matchups) {
-            List<String> matchupsForWeek = new ArrayList<>();
+            int weekNumber = matchup.getWeekNumber();
+            if (weekNumber >= 1 && weekNumber <= numberOfWeeks) {
+                // Get the team names
+                List<Team> team1Name = TEAM_DAO.findByPropertyEqual("id", matchup.getTeam1());
+                String team1 = team1Name.get(0).getTeamName();
+                List<Team> team2Name = TEAM_DAO.findByPropertyEqual("id", matchup.getTeam2());
+                String team2 = team2Name.get(0).getTeamName();
 
-            while(currentWeek <= numberOfWeeks) {
-                if (matchup.getWeekNumber() == currentWeek) {
-                    String currentMatchup = matchup.getTeam1() + " vs. " + matchup.getTeam2();
-                    matchupsForWeek.add(currentMatchup);
-                }
-                schedule.add(matchupsForWeek);
-                currentWeek++;
+                String currentMatchup = team1 + " vs. " + team2;
+                schedule.get(weekNumber - 1).add(currentMatchup);
             }
         }
 
