@@ -32,7 +32,7 @@ public class AddScheduleToHistory extends HttpServlet {
 
         // Get the values
         Dao<User> USER_DAO = new Dao<>(User.class);
-        String userName = "dmueller3"; // (String) session.getAttribute("userName");
+        String userName = (String) session.getAttribute("userName");
         List<User> user = USER_DAO.findByPropertyEqual("userName", userName);
         int userID = user.get(0).getUser_id();
         logger.info("user id " + userID);
@@ -49,15 +49,13 @@ public class AddScheduleToHistory extends HttpServlet {
         Dao<Schedule> SCHEDULE_DAO = new Dao<>(Schedule.class);
         Schedule schedule = new Schedule(userID, currentDate, numberOfWeeks, numberOfTeams, matchupFrequency);
 
-        SCHEDULE_DAO.insert(schedule);
+        int scheduleID = SCHEDULE_DAO.insert(schedule);
 
-        /*
         AddMatchups addMatchups = new AddMatchups();
 
         List<List<String>> generatedSchedule = (List<List<String>>) session.getAttribute("schedule");
         addMatchups.addMatchupsToDatabase(generatedSchedule, scheduleID);
 
-         */
         RequestDispatcher view = request.getRequestDispatcher("scheduleAdded.jsp");
         view.forward(request, response);
     }
