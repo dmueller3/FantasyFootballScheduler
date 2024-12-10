@@ -10,7 +10,7 @@
   </header>
   <h2>Schedule Generation Results</h2>
   <table>
-    <c:forEach var="week" items="${schedule}" varStatus="weekNumber">
+    <c:forEach var="week" items="${sessionScope.schedule}" varStatus="weekNumber">
       <tr>
         <td>Week ${weekNumber.index + 1}</td>
         <c:forEach var="matchup" items="${week}">
@@ -24,13 +24,9 @@
     <form action="enterNames">
       <input type="submit" value="Regenerate Schedule">
     </form>
-    <c:choose>
-      <c:when test="${not empty userName}">
         <form action="addSchedule" method="GET">
           <input type="submit" value="Save Schedule">
         </form>
-      </c:when>
-    </c:choose>
   </div>
 </main>
 </body>

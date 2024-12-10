@@ -49,7 +49,7 @@ public class EnterTeamNames extends HttpServlet {
         scheduler.scheduleCreation();
 
         List<List<String>> generatedSchedule = scheduler.getSchedule();
-        request.setAttribute("schedule", generatedSchedule);
+        session.setAttribute("schedule", generatedSchedule);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("scheduleResult.jsp");
         dispatcher.forward(request, response);
