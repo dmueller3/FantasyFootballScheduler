@@ -9,24 +9,35 @@
     <c:import url="header.jsp" />
   </header>
   <h2>Schedule Generation Results</h2>
-  <table>
-    <c:forEach var="week" items="${sessionScope.schedule}" varStatus="weekNumber">
-      <tr>
-        <td>Week ${weekNumber.index + 1}</td>
-        <c:forEach var="matchup" items="${week}">
-          <td>${matchup}</td>
+  <c:choose>
+    <c:when test="${empty sessionScope.schedule}">
+      <h3>Error Generating Schedule. Please go back</h3>
+    </c:when>
+    <c:otherwise>
+      <table>
+        <c:forEach var="week" items="${sessionScope.schedule}" varStatus="weekNumber">
+          <tr>
+            <td>Week ${weekNumber.index + 1}</td>
+            <c:forEach var="matchup" items="${week}">
+              <td>${matchup}</td>
+            </c:forEach>
+          </tr>
         </c:forEach>
-      </tr>
-    </c:forEach>
-  </table>
+      </table>
+    </c:otherwise>
+  </c:choose>
   <div id="generationOptionsButtons">
     <!-- Regenerate the schedule with the same settings and teams -->
     <form action="enterNames">
       <input type="submit" value="Regenerate Schedule">
     </form>
+    <c:choose>
+      <c:when test="${not empty userName}">
         <form action="addSchedule" method="GET">
           <input type="submit" value="Save Schedule">
         </form>
+      </c:when>
+    </c:choose>
   </div>
 </main>
 </body>
