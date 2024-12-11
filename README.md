@@ -8,10 +8,10 @@ Link to NFL Fantasy Website: https://fantasy.nfl.com/
 <br>
 <ul>
     <li>Security/Authentication<ul><li>AWS Cognito</li></ul></li>
-    <li>DatabaseM<ul><li>MySQL 8.x</li></ul></li>
-    <li>ORM Framework<ul><li>Hibernate Version TBD</li></ul></li>
+    <li>DatabaseM<ul><li>MySQL 8.0.28</li></ul></li>
+    <li>ORM Framework<ul><li>Hibernate Version 6.4.3</li></ul></li>
     <li>Dependency Management<ul><li>Maven</li></ul></li>
-    <li>Web Services consumed using Java<ul><li>TBD</li></ul></li>
+    <li>Web Services consumed using Java<ul><li>AWS</li></ul></li>
     <li>CSS<ul><li>Materialize</li></ul></li>
     <li>Data Validation<ul><li>Bootstrap Validator for front end</li></ul></li>
     <li>Logging<ul><li>Log4J2</li></ul></li>
