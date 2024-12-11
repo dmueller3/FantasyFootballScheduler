@@ -6,6 +6,8 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import auth.*;
+import entity.User;
+import persistence.Dao;
 import util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -173,10 +175,17 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         String userName = jwt.getClaim("cognito:username").asString();
         logger.debug("here's the username: " + userName);
 
-        logger.debug("here are all the available claims: " + jwt.getClaims());
 
-        // TODO decide what you want to do with the info!
-        // for now, I'm just returning username for display back to the browser
+        // If the user doesn't exist, add them to the database
+        Dao<User> USER_DAO = new Dao<>(User.class);
+        List<User> user = USER_DAO.findByPropertyEqual("userName", userName);
+
+        if (user == null || user.isEmpty()) {
+            User newUser = new User(userName);
+            USER_DAO.insert(newUser);
+        }
+
+        logger.debug("here are all the available claims: " + jwt.getClaims());
 
         return userName;
     }
